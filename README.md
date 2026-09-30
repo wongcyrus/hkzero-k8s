@@ -1,7 +1,7 @@
 # Hong Kong Zero (Kubernetes Grader Client - Educational Clone)
 
 > **⚠️ IMPORTANT LEGAL & COPYRIGHT NOTICE / 重要版權與免責聲明**  
-> This project is an **unofficial, reverse-engineered educational clone** of [Hong Kong Zero (港域時空)](https://hongkongzero.com/) developed for non-commercial academic research and Kubernetes pedagogy. **No official permission was obtained from the original creators.**  
+> This project is an **educational clone** of [Hong Kong Zero (港域時空)](https://hongkongzero.com/) developed for non-commercial academic research and Kubernetes pedagogy. **No official permission was obtained from the original creators.**  
 > All rights and original assets belong to the authors of Hong Kong Zero.  
 > Please read the full [DISCLAIMER.md](./DISCLAIMER.md) for attribution, fair use declarations, and takedown policy.
 
