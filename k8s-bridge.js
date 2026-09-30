@@ -2,6 +2,16 @@
  * ============================================================================
  * k8s-bridge.js: Kubernetes Grader WebSocket Bridge & HUD Controller for HK Zero
  * ============================================================================
+ * 
+ * [DISCLAIMER & ATTRIBUTION / 版權與免責聲明]
+ * This client is an UNOFFICIAL, reverse-engineered educational demonstration
+ * developed for Kubernetes grading pedagogy. No official permission was obtained
+ * from the creators of Hong Kong Zero (港域時空).
+ * 
+ * All original game assets, 3D street models, and audiovisual media belong
+ * entirely to the creators of Hong Kong Zero (https://hongkongzero.com/).
+ * Please see DISCLAIMER.md for full attribution, fair use, and takedown details.
+ * ============================================================================
  */
 (function () {
   'use strict';
@@ -300,9 +310,25 @@
             關閉
           </button>
         </div>
+
+        <div style="font-size: 10px; color: #768d99; margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; line-height: 1.6;">
+          ⚠️ <strong>非官方教學研究專案 (Unofficial Demo)</strong>：本系統為 Kubernetes 實作評測逆向工程示範，未獲《港域時空》原創官方授權。所有原創遊戲素材與版權均歸原作者所有。請造訪並支持正版：<a href="https://hongkongzero.com/" target="_blank" rel="noopener" style="color: #8bbcd8;">hongkongzero.com</a>｜<a href="./DISCLAIMER.md" target="_blank" style="color: #8bbcd8;">免責聲明文件</a>
+        </div>
       </div>
     `;
     document.body.appendChild(configModal);
+
+    // 4. Persistent Educational Disclaimer Banner
+    const disclaimerBanner = document.createElement('div');
+    disclaimerBanner.id = 'k8s-disclaimer-banner';
+    disclaimerBanner.innerHTML = `
+      <div>
+        <span class="disclaimer-tag">非官方教學示範 / UNOFFICIAL DEMO</span>
+        本遊戲客戶端為 Kubernetes 實作評測逆向工程研究（未獲官方授權）。原作版權完全歸《港域時空》團隊所有，請支持正版：<a href="https://hongkongzero.com/" target="_blank" rel="noopener">hongkongzero.com</a>｜<a href="./DISCLAIMER.md" target="_blank">版權與免責聲明 (Disclaimer)</a>
+      </div>
+      <button class="disclaimer-dismiss" onclick="document.getElementById('k8s-disclaimer-banner').style.display='none'">我知道了 (Dismiss)</button>
+    `;
+    document.body.appendChild(disclaimerBanner);
 
     // Event handlers for config modal
     document.getElementById('k8s-btn-save-config').onclick = () => {

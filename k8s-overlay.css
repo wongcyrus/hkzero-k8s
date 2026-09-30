@@ -203,3 +203,57 @@
   background: #f1b748;
   box-shadow: 0 0 8px rgba(241, 183, 72, 0.6);
 }
+
+/* Educational Disclaimer Banner */
+#k8s-disclaimer-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99998;
+  background: rgba(10, 18, 25, 0.96);
+  border-top: 1px solid #bb423b;
+  color: #c9d7de;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+#k8s-disclaimer-banner a {
+  color: #8bbcd8;
+  text-decoration: underline;
+}
+
+#k8s-disclaimer-banner .disclaimer-tag {
+  background: #bb423b;
+  color: #fff;
+  font-weight: bold;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+#k8s-disclaimer-banner .disclaimer-dismiss {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #a0b4bf;
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#k8s-disclaimer-banner .disclaimer-dismiss:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
