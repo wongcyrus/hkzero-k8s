@@ -1,7 +1,10 @@
 # Hong Kong Zero (Kubernetes Grader Client - Educational Clone)
 
+> **💖 SPECIAL THANKS TO THE ORIGINAL AUTHOR (Arthur) / 特別鳴謝原創作者**  
+> We express our deepest gratitude and highest respect to **Arthur and the Hong Kong Zero team** for creating [Hong Kong Zero (港域時空)](https://hongkongzero.com/). Their brilliant 3D WebGL reconstruction of Hong Kong is a groundbreaking achievement in independent web gaming. We urge everyone to play and support the official original game at [hongkongzero.com](https://hongkongzero.com/)!
+> 
 > **⚠️ IMPORTANT LEGAL & COPYRIGHT NOTICE / 重要版權與免責聲明**  
-> This project is an **educational clone** of [Hong Kong Zero (港域時空)](https://hongkongzero.com/) developed for non-commercial academic research and Kubernetes pedagogy. **No official permission was obtained from the original creators.**  
+> This project is an **educational clone** developed for non-commercial academic research and Kubernetes pedagogy. **No official permission was obtained from the original creators.**  
 > All rights and original assets belong to the authors of Hong Kong Zero.  
 > Please read the full [DISCLAIMER.md](./DISCLAIMER.md) for attribution, fair use declarations, and takedown policy.
 
