@@ -268,6 +268,9 @@
         <div class="k8s-actions" id="k8s-overlay-actions">
           <button class="k8s-btn" id="k8s-resume-btn" style="display: none;">Continue Mission →</button>
         </div>
+        <div style="font-size: 10px; color: #768d99; text-align: center; margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+          💖 Special thanks to Arthur &amp; Team. Play original game: <a href="https://hongkongzero.com/" target="_blank" rel="noopener" style="color: #8bbcd8; text-decoration: underline;">hongkongzero.com</a>
+        </div>
       </div>
     `;
     document.body.appendChild(overlay);
