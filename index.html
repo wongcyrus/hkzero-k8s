@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101619"><link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><title>港域時空 HONG KONG ZERO｜白夜銅鑼灣 Whiteout Causewaybay・逆火尖沙咀・風滿彌敦道</title>
+<meta name="description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
+<link rel="canonical" href="https://hongkongzero.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_HK">
+<meta property="og:title" content="港域時空 HONG KONG ZERO">
+<meta property="og:description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
+<meta property="og:url" content="https://hongkongzero.com/">
+<meta property="og:image" content="https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="港域時空 HONG KONG ZERO：大雪中駛向銅鑼灣的電車與夜街">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="港域時空 HONG KONG ZERO">
+<meta name="twitter:description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
+<meta name="twitter:image" content="https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg">
+
+<link rel="stylesheet" href="./k8s-overlay.css">
+<style>:root{color-scheme:dark;--paper:#eeeae1;--muted:#8f9a9e;--red:#bb423b;--line:#ffffff25}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0c1115;color:var(--paper);font-family:"Helvetica Neue",Arial,"PingFang TC",sans-serif}button{font:inherit;color:inherit;cursor:pointer;border:0;border-radius:0;transition:background .2s,color .2s,transform .2s}button:focus-visible{outline:2px solid #ed7668;outline-offset:5px}button:active{transform:translateY(1px)}[hidden]{display:none!important}#world{display:block;width:100%;height:100%;touch-action:none;cursor:none}#vignette,#grain,#damage,#flash{position:fixed;inset:0;pointer-events:none}#vignette{background:radial-gradient(ellipse at 55% 47%,transparent 30%,#04090c99 100%)}#grain{opacity:.065;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.55' d='M0 0h160v160H0z'/%3E%3C/svg%3E");z-index:3}#damage{box-shadow:inset 0 0 150px 35px #a52320;opacity:0;z-index:4}#flash{background:#efb275;opacity:0;mix-blend-mode:screen;z-index:2}.screen{position:fixed;inset:0;z-index:5}#menu{background:linear-gradient(90deg,#090e14ed 0%,#0b1018c4 27%,#11171c40 56%,transparent 78%),linear-gradient(0deg,#090e14c7,transparent 25%)}.mast{position:absolute;left:4.6%;right:4.6%;top:34px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:3px;font-weight:600}.brand-mark{font-size:31px;line-height:1}.brand-sub{font-size:9px;letter-spacing:1.8px;color:#8f999e;margin-left:16px}.weather{font-size:11px;letter-spacing:2px;display:flex;align-items:center;gap:13px}.live-dot{width:5px;height:5px;background:#dae3dc;border-radius:50%;box-shadow:0 0 8px #fff6}.divider{color:#a7ada855}.weather-label{font-size:9px;color:#8d9da3;letter-spacing:1px}.title-block{position:absolute;left:8%;top:18%;}.eyebrow{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:2px;color:#b6c0c2}.red-line{display:inline-block;width:28px;height:2px;background:var(--red)}h1{margin:25px 0 11px;font-family:"Songti TC","Noto Serif CJK TC","PMingLiU",serif;font-size:clamp(70px,8.1vw,128px);letter-spacing:.12em;line-height:1.08;font-weight:600;text-shadow:0 3px 35px #0004}h1 span{display:block;margin-top:2px}.english-title{font-size:13px;letter-spacing:6px;margin-top:23px;color:#c9cece}.intro{font-size:13px;line-height:2;color:#aab4b9;margin:28px 0 27px;letter-spacing:1.2px}.menu-actions{display:flex;gap:12px;flex-wrap:wrap}.primary,.secondary{height:49px;min-width:168px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;gap:28px;font-size:12px;letter-spacing:1.2px}.primary{background:var(--paper);color:#171d22}.primary:hover{background:#fff}.primary span,.secondary span{font-size:19px}.secondary{border:1px solid #8b99985a;background:#1a22273b}.secondary:hover{background:#dbe5e01c}.entry-note{font-size:9px;color:#75878d;letter-spacing:1px;margin-top:16px}.location-card{position:absolute;right:5%;bottom:17%;width:236px;padding:20px 0 0;text-shadow:0 2px 9px #000}.location-kicker{font-size:9px;letter-spacing:2.5px;color:#c7d1d3}.location-name{font-size:25px;letter-spacing:4px;margin-top:15px}.location-name span{display:block;font-size:10px;color:#a5b2b7;letter-spacing:2px;margin-top:9px}.location-rule{height:1px;background:#bbc8cb55;margin:20px 0}.location-card p{color:#b3bfc3;font-size:11px;line-height:1.9;letter-spacing:1px}.location-card button{background:transparent;display:flex;justify-content:space-between;width:100%;padding:12px 0 0;font-size:10px;letter-spacing:2px}.location-card button:hover{color:#fff}.location-card button span{font-size:15px}#hud{position:fixed;inset:0;z-index:4;pointer-events:none;text-shadow:0 2px 10px #000}#hud button{pointer-events:auto}.hud-top{display:flex;justify-content:space-between;position:absolute;left:35px;right:35px;top:31px}.objective{border-left:2px solid #d2d8d7;padding-left:16px;display:flex;flex-direction:column;gap:9px}.overline{font-size:9px;letter-spacing:2px;color:#a4b2ba}.objective strong{font-size:17px;letter-spacing:3px;font-weight:500}.objective>span:last-of-type{font-size:10px;color:#b1bdc2;letter-spacing:1px}.top-actions{display:flex;align-items:flex-start;gap:14px}.top-actions button{font-size:10px;background:#0a101666;padding:9px 12px;letter-spacing:1px;border:1px solid #fff2}kbd{font:8px monospace;border:1px solid #ffffff40;padding:2px;margin-left:7px}#compass{position:absolute;top:31px;left:50%;transform:translateX(-50%);display:flex;gap:15px;color:#c1c9cc;font-size:9px;letter-spacing:2px}#compass b{color:#fff4;font-weight:300}#crosshair{position:absolute;left:50%;top:50%;width:0;height:0}#crosshair i{position:absolute;background:#f1eee6c7;width:8px;height:1px}#crosshair i:nth-child(1){left:-15px}#crosshair i:nth-child(2){left:7px}#crosshair i:nth-child(3){transform:rotate(90deg);left:-4px;top:-11px}#crosshair i:nth-child(4){transform:rotate(90deg);left:-4px;top:11px}#crosshair b{position:absolute;width:2px;height:2px;background:#fff;left:-1px;top:-1px}#hitmarker{position:absolute;top:50%;left:50%;width:0;height:0;transform:translate(-50%,-50%);opacity:0;--tick:#f4f1ea;--gap:9px;--len:9px}#hitmarker i{position:absolute;left:0;top:0;width:var(--len);height:1.5px;background:var(--tick);box-shadow:0 0 6px #000c;transform-origin:0 50%}#hitmarker i:nth-child(1){transform:rotate(-135deg) translateX(var(--gap))}#hitmarker i:nth-child(2){transform:rotate(-45deg) translateX(var(--gap))}#hitmarker i:nth-child(3){transform:rotate(45deg) translateX(var(--gap))}#hitmarker i:nth-child(4){transform:rotate(135deg) translateX(var(--gap))}#hitmarker.head{--tick:#f2c46a}#hitmarker.kill{--tick:#ff4a3a;--gap:12px;--len:13px}#hitmarker.kill i{height:2.5px;box-shadow:0 0 10px #ff3a2899,0 0 6px #000c}#notification{position:absolute;left:50%;top:26%;transform:translateX(-50%);font-size:14px;letter-spacing:3px;text-align:center;opacity:0;transition:opacity .3s;width:80%}#notification.show{opacity:1}#interaction{position:absolute;left:50%;top:61%;transform:translateX(-50%);font-size:12px;letter-spacing:2px;color:#d5e9e1}.hud-bottom{position:absolute;bottom:31px;left:35px;right:35px;display:flex;align-items:flex-end;justify-content:space-between}.health-panel{width:150px}.health-value{display:flex;gap:10px;align-items:baseline;margin-top:6px}.health-value>span{font-size:20px;color:#b8cac6}.health-value strong{font-size:33px;font-weight:300;font-variant-numeric:tabular-nums}.health-value small{font-size:9px;color:#a2b1b8}.health-track{height:2px;width:120px;background:#fff2;margin-top:9px}.health-track i{display:block;background:#d6e1dc;width:100%;height:100%;transition:width .2s}.bottom-hint{font-size:9px;letter-spacing:1.5px;color:#acb9be;padding-bottom:4px}.bottom-hint span{margin:0 10px;color:#fff4}.ammo-panel{text-align:right}.ammo-panel strong{font-size:44px;font-weight:300;font-variant-numeric:tabular-nums;letter-spacing:2px}.ammo-total{font-size:17px;color:#8e9da5}.ammo-panel>span:last-child{font-size:8px;letter-spacing:2px;color:#99a8ae}#reload-progress{position:absolute;left:50%;top:56%;width:80px;height:2px;transform:translateX(-50%);background:#fff2;display:none}#reload-progress i{height:100%;display:block;background:#dce8e2}#radar{position:absolute;right:35px;top:110px;width:115px;height:115px;opacity:.8}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#071017c9;backdrop-filter:blur(12px);display:grid;place-items:center;padding:24px}.modal{width:min(100%,420px)}.modal h2{font-family:"Songti TC",serif;font-size:48px;letter-spacing:6px;font-weight:500;margin:20px 0}.modal p{font-size:12px;line-height:2;color:#aabac2;margin-bottom:25px;letter-spacing:1px}.modal>.primary,.modal>.secondary{width:100%;margin-top:10px}.modal-note{font-size:10px!important;line-height:2;color:#7e939d!important;margin-top:23px;letter-spacing:.5px}.control-row{display:flex;justify-content:space-between;border-bottom:1px solid #fff2;padding:13px 0;font-size:11px;color:#99adb8}.control-row b{color:#d5dedf;letter-spacing:1px;font-size:10px}.help-modal h2{font-size:40px;margin-bottom:18px}.help-modal p{margin:20px 0 10px}.results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #fff2;border-bottom:1px solid #fff2;padding:24px 0;margin:25px 0}.results-grid span{display:block;font-size:10px;color:#9daeb7;letter-spacing:2px}.results-grid strong{font-size:30px;display:block;margin-top:12px;font-weight:300}#boot,#error{position:fixed;inset:0;z-index:25;background:#10171c;display:flex;flex-direction:column;align-items:center;justify-content:center}#boot p{letter-spacing:8px;margin:22px 0 10px;font-family:"Songti TC",serif;font-size:22px}#boot small{font-size:10px;letter-spacing:2px;color:#7b919c}#error{padding:32px;text-align:center}#error p{line-height:2;color:#aabac3}#touch-controls{display:none}body.is-exploring .ammo-panel{opacity:1}@media(max-height:730px) and (min-width:801px){.title-block{top:20%}h1{font-size:84px;margin-top:18px}.english-title{margin-top:14px}.intro{margin:18px 0;font-size:12px}.location-card{bottom:14%}}@media(max-width:800px){.brand-sub,.weather-label,.location-card{display:none}.mast{top:23px;left:6%;right:6%}.brand{font-size:11px;gap:9px;letter-spacing:2px}.weather{font-size:9px;gap:7px;letter-spacing:1px}.title-block{left:8%;top:22%}h1{font-size:clamp(66px,15vw,105px)}.eyebrow{font-size:8px;letter-spacing:1.4px}.english-title{font-size:11px;letter-spacing:4px}.intro{font-size:12px}.menu-actions{gap:9px}.primary,.secondary{min-width:140px;padding:0 17px;font-size:11px}.entry-note{font-size:8px}.hud-top{left:20px;right:20px;top:20px}.hud-bottom{left:20px;right:20px;bottom:25px}.bottom-hint,#compass{display:none}#radar{top:90px;right:20px;width:80px;height:80px}.top-actions{gap:5px}.top-actions button{font-size:9px;padding:8px}.objective strong{font-size:14px}.objective{gap:7px;padding-left:12px}.objective>span:last-of-type{font-size:9px}.overline{font-size:8px}.health-panel{width:120px}.ammo-panel strong{font-size:35px}}@media(max-height:550px){.title-block{top:21%;}.title-block h1{font-size:58px;display:flex;gap:4px;margin:15px 0}.title-block h1 span{display:inline}.english-title{margin-top:5px;font-size:9px}.intro{margin:13px 0;font-size:10px}.primary,.secondary{height:39px}.entry-note{margin-top:10px}.location-card{display:none}.mast{top:15px}.modal h2{font-size:32px;margin:12px 0}.modal p{margin:10px 0}.modal-note{margin-top:10px}.control-row{padding:7px}.help-modal{max-height:95vh;overflow:auto}.hud-bottom{bottom:18px}}
+
+.fire-hint{margin-bottom:12px;font-size:12px;letter-spacing:.5px;color:#eeeae1;text-shadow:0 1px 4px #000,0 2px 12px #000}.fire-hint small{display:block;margin-top:4px;font-size:10px;color:#b9c6cc}body.is-exploring .fire-hint{display:block}
+
+.map-backdrop{position:fixed;inset:0;z-index:15;background:#071017ed;display:grid;place-items:center;padding:18px;backdrop-filter:blur(10px)}.map-sheet{width:min(720px,100%);height:100%;max-height:1050px;display:flex;flex-direction:column;min-height:0}.map-header{display:flex;align-items:center;justify-content:space-between;gap:16px}.map-header h2{font-size:26px;letter-spacing:4px;margin:8px 0}.map-header p{font-size:12px;color:#adbdbf;margin:0 0 12px}.map-header button{background:#20313a;border:1px solid #b3c4c44d;padding:12px;font-size:11px;white-space:nowrap}#map-canvas{display:block;min-height:0;flex:1;width:100%;object-fit:contain}.map-legend{display:flex;justify-content:center;gap:20px;padding-top:12px;font-size:11px;color:#faf6de}.enemy-key{color:#ef927d}.exit-key{color:#b0f0cd}.map-note{text-align:center;font-size:10px;line-height:1.8;letter-spacing:1px;color:#9bafb7;margin:10px 0 0}@media(max-width:600px){.map-header h2{font-size:21px}.map-header button{padding:9px}.map-legend{gap:12px;font-size:10px}.fire-hint{font-size:10px}.health-panel{width:100px}.hud-top{left:14px;right:14px}.top-actions kbd{display:none}.objective strong{font-size:12px;letter-spacing:1px}.objective{max-width:52%}.objective>span:last-of-type{line-height:1.6}}
+
+#hud::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#071018a8,transparent 25%,transparent 78%,#07101855)}.fire-hint{display:inline-block;padding:7px 10px;background:#0b1b27b8;border-left:2px solid #d6e6ed}.ammo-panel{color:#f5f3ed}.ammo-panel .overline,.ammo-panel #reload-label{color:#d1dce3}
+
+.map-note a{color:#c6d6df;text-underline-offset:3px}
+
+.quality-setting{display:flex;align-items:center;gap:12px;margin:18px 0 10px;font-size:12px;color:#c4cecf;letter-spacing:.06em}.quality-setting select{font:inherit;color:#eeeae1;background:#172129;border:1px solid #ffffff40;padding:7px 10px;border-radius:2px}.quality-setting select:focus-visible{outline:2px solid #d88b75;outline-offset:3px}
+@media(max-height:730px) and (min-width:801px){.title-block{top:17%}.title-block h1{font-size:74px}.title-block .entry-note{margin-top:8px}}
+/* Composited motion starts before the large offline model bundle is parsed. */
+#boot{overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#1c303a 0%,#0b1219 70%);isolation:isolate}#boot .eyebrow{font-size:10px;letter-spacing:.3em;color:#92a6b2;margin-top:32px}#boot>p{margin:19px 0 25px;font-size:27px;letter-spacing:.38em}.boot-emblem{position:relative;width:78px;height:78px;display:grid;place-items:center}.boot-emblem span{font-size:42px;color:#e2e8e2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;animation:snow-turn 16s linear infinite;will-change:transform}.boot-emblem i{position:absolute;inset:0;border:1px solid #809ca832;border-top-color:#cddcdd;border-radius:50%;animation:snow-turn 2.4s linear infinite;will-change:transform}.boot-track{height:2px;width:min(260px,65vw);background:#819aab29;overflow:hidden;margin-bottom:20px}.boot-track i{display:block;width:0;height:100%;background:#e0e7de;transition:width .15s linear}#boot-percent{font-size:12px;color:#dbe5e8;font-variant-numeric:tabular-nums;margin:-12px 0 14px}#boot small{font-size:12px;color:#b3c2c9;letter-spacing:.13em}.boot-note{margin-top:11px;font-size:10px;color:#728793;letter-spacing:.08em}.boot-snow{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}.boot-snow i{position:absolute;inset:-100% -10% 0;background-image:radial-gradient(circle at 10% 20%,#e9f4f9 1px,transparent 2px),radial-gradient(circle at 70% 60%,#cde0ee 1px,transparent 2px),radial-gradient(circle at 45% 90%,#a5c2d2 1px,transparent 2px);background-size:251px 271px;opacity:.24;animation:boot-fall 15s linear infinite;will-change:transform}.boot-snow i:nth-child(2){background-size:383px 367px;animation-duration:22s;animation-delay:-9s;opacity:.16}.boot-snow i:nth-child(3){background-size:173px 223px;animation-duration:10s;animation-delay:-4s;opacity:.1}@keyframes snow-turn{to{transform:rotate(360deg)}}@keyframes loading-sweep{from{transform:translateX(-110%)}to{transform:translateX(350%)}}@keyframes boot-fall{to{transform:translate(4%,50%)}}.briefing-screen{z-index:12;overflow:auto;display:grid;place-items:center;padding:32px;background:linear-gradient(110deg,#0b131cf5,#101c27ef 60%,#122332d9)}.briefing-sheet{width:min(740px,100%);padding:20px 0}.briefing-meta{color:#c4a681;font-size:12px;letter-spacing:.22em;margin:27px 0 15px}.briefing-sheet h2{font-family:'Songti TC','Noto Serif TC',serif;font-size:clamp(29px,4vw,46px);font-weight:500;letter-spacing:.12em;line-height:1.45;margin:0 0 22px}.briefing-story{font-size:14px;line-height:1.95;color:#c2ced3;max-width:650px;margin:10px 0}.briefing-order{border-left:2px solid #b58964;padding:14px 20px;margin:24px 0;background:#b1c5d209}.briefing-order>span{font-size:10px;letter-spacing:.22em;color:#c4a681;display:block;margin-bottom:8px}.briefing-order strong{font-size:19px;letter-spacing:.1em;font-weight:500}.briefing-order p{font-size:12px;color:#98adb9;line-height:1.8;margin:8px 0 0}.briefing-controls{display:flex;flex-wrap:wrap;gap:9px 24px;font-size:11px;color:#879da9;line-height:1.8}.briefing-controls b{color:#c8d4d8;font-weight:500}.briefing-actions{display:flex;gap:12px;margin-top:25px}.briefing-actions .primary{width:230px}.briefing-actions .secondary{width:100px}.briefing-fiction{display:block;font-size:10px;color:#778a96;margin-top:17px;letter-spacing:.06em}@media(max-height:750px){.briefing-screen{padding:16px 30px}.briefing-sheet{padding:4px 0}.briefing-meta{margin-top:17px}.briefing-sheet h2{font-size:30px;margin-bottom:12px}.briefing-order{margin:16px 0}.briefing-actions{margin-top:16px}}@media(prefers-reduced-motion:reduce){.boot-snow i,.boot-emblem span,.boot-emblem i,.boot-track i{animation:none}.boot-track i{transition:none}}
+
+/* Narrative illustrations remain DOM images: no WebGL textures or live effects. */
+.illustrated-screen{isolation:isolate;background:#0a1118;overflow-y:auto;display:flex;align-items:center;justify-content:flex-start;padding:48px 6%;backdrop-filter:none}
+.story-art{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;z-index:-2;pointer-events:none}
+.illustrated-screen::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#080f17fa 0%,#080f17f2 30%,#080f17d9 43%,#080f1750 65%,#080f1710 100%),linear-gradient(0deg,#070d1666,transparent 30%)}
+.illustrated-screen .briefing-sheet{width:min(510px,46%);padding:0;margin:auto 0}
+.illustrated-screen .briefing-story{color:#cbd4d9;font-size:13px}
+.illustrated-screen .briefing-sheet h2{font-size:clamp(30px,3.2vw,46px)}
+.illustrated-screen .briefing-order{background:#0e1b2599}
+.illustrated-screen .briefing-controls{color:#a6b9c3}
+.illustrated-screen .briefing-fiction{color:#9aadb7}
+.illustrated-screen .result-modal{width:min(430px,43%);margin:auto 0}
+.illustrated-screen .result-modal h2{font-size:clamp(34px,4.4vw,60px)}
+.illustrated-screen .result-modal p{color:#cad4d9}
+@media(max-width:800px){
+ .illustrated-screen{display:block;padding:0 0 28px}
+ .illustrated-screen .story-art{position:relative;display:block;width:100%;height:34vh;min-height:190px;object-position:center 58%;z-index:0}
+ .illustrated-screen::before{display:none}
+ .illustrated-screen .briefing-sheet,.illustrated-screen .result-modal{width:auto;max-width:560px;margin:0 auto;padding:24px}
+ .illustrated-screen .briefing-meta{margin-top:18px}
+ .illustrated-screen .briefing-sheet h2{font-size:30px}
+ .illustrated-screen .briefing-actions .primary{width:auto;flex:1;min-width:0}
+ .illustrated-screen .briefing-actions .secondary{width:auto;min-width:90px}
+}
+@media(min-width:801px) and (max-height:720px){
+ .illustrated-screen{padding:25px 5%}
+ .illustrated-screen .briefing-sheet{width:48%}
+ .illustrated-screen .briefing-meta{margin:14px 0 10px}
+ .illustrated-screen .briefing-sheet h2{font-size:30px;margin-bottom:12px}
+ .illustrated-screen .briefing-order{margin:14px 0;padding:10px 16px}
+}
+
+/* Phone input is selected alongside the mobile asset budget, before loading. */
+.touch-copy{display:none}.touch-mode .touch-copy{display:block}.touch-mode .desktop-copy{display:none}.touch-mode .briefing-controls.touch-copy{display:flex}
+html,body{overscroll-behavior:none;touch-action:manipulation}button{touch-action:manipulation}
+.touch-mode{--safe-left:max(14px,env(safe-area-inset-left));--safe-right:max(14px,env(safe-area-inset-right));--safe-top:max(10px,env(safe-area-inset-top));--safe-bottom:max(12px,env(safe-area-inset-bottom));-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.touch-mode #grain{display:none}.touch-mode #touch-controls{display:block;position:absolute;inset:0;pointer-events:none}
+#touch-move-zone{position:absolute;pointer-events:auto;touch-action:none;left:var(--safe-left);bottom:calc(var(--safe-bottom) + 25px);width:185px;height:180px;display:grid;place-items:center}
+#touch-stick{width:110px;height:110px;border:1px solid #c9dce35c;border-radius:50%;background:#0c1b2566;position:relative;display:grid;place-items:center;color:#d3e0e4;font-size:11px}
+#touch-stick i{position:absolute;width:46px;height:46px;border:1px solid #d9e5e4a0;border-radius:50%;background:#d9e5e422;transform:translate(var(--stick-x,0px),var(--stick-y,0px));pointer-events:none}
+#touch-stick span{pointer-events:none}#touch-stick small{position:absolute;top:-23px;white-space:nowrap;font-size:10px}#touch-stick.sprinting{border-color:#d9b881;background:#8a694c50}
+.touch-actions{position:absolute;right:var(--safe-right);bottom:calc(var(--safe-bottom) + 35px);width:186px;height:160px;pointer-events:none}
+.touch-actions button{position:absolute;pointer-events:auto;touch-action:none;border:1px solid #ccdae377;background:#10212caa;border-radius:50%;width:52px;height:52px;font-size:11px;padding:0;min-width:0;box-shadow:0 2px 12px #0003}
+#touch-fire{right:8px;bottom:0;width:84px;height:84px;border-color:#ead4b9;background:#1a2933c9;font-size:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+#touch-fire b{font-size:24px;font-weight:400;line-height:1}#touch-fire small{font-size:8px;color:#bdcad0}#touch-fire.held{background:#825f37bb}
+/* The right thumb's half ring round 開火 (Arthur 2026-09-28): going round it from the top, 瞄準 above, 換彈 upper left,
+   蹲下 (src/crouch-controls.mjs) left and 跳躍 lower left, each 52 px button 92-97 px from the fire button's centre and
+   6 px from the next. Offsets run from the cluster's bottom right corner, where 開火 sits, so the ring is the same held
+   either way and at every cluster size. With grenades on, the ring widens for one more (below). */
+#touch-aim{right:1px;bottom:105px}#touch-aim[aria-pressed=true]{background:#976c3acc;border-color:#f2d3a2}#touch-reload{right:59px;bottom:104px}#touch-jump{right:121px;bottom:12px}
+.touch-mode .hud-top{left:var(--safe-left);right:var(--safe-right);top:var(--safe-top)}.touch-mode .top-actions{gap:6px}.touch-mode .top-actions button{min-height:44px;min-width:44px;padding:8px;font-size:11px}.touch-mode kbd,.touch-mode .bottom-hint,.touch-mode .fire-hint,.touch-mode .health-panel>.overline,.touch-mode .ammo-panel>.overline{display:none}
+.touch-mode .objective{padding-left:9px;gap:5px;max-width:48%}.touch-mode .objective strong{font-size:13px;letter-spacing:1px}.touch-mode .objective .overline{font-size:8px;letter-spacing:.5px}
+.touch-mode .hud-bottom{left:calc(var(--safe-left) + 14px);right:calc(var(--safe-right) + 16px);bottom:var(--safe-bottom);align-items:center}
+.touch-mode .health-value{margin:0;gap:5px}.touch-mode .health-value strong{font-size:23px}.touch-mode .health-value small{font-size:8px}.touch-mode .health-track{width:85px;margin-top:3px}.touch-mode .ammo-panel>div:not(.fire-hint){display:inline}.touch-mode .ammo-panel strong{font-size:25px}.touch-mode .ammo-total{font-size:12px}.touch-mode #reload-label{display:inline-block;margin-left:8px;font-size:9px;letter-spacing:0}
+.touch-mode #radar{top:calc(var(--safe-top) + 56px);right:var(--safe-right);width:66px;height:66px}.touch-mode #compass{display:flex;top:calc(var(--safe-top) + 126px);left:auto;right:var(--safe-right);transform:none;font-size:10px;letter-spacing:1px;white-space:nowrap}.touch-mode #notification{font-size:11px;letter-spacing:.5px;top:29%;width:70%}.touch-mode #interaction{font-size:10px;letter-spacing:.5px;top:61%;white-space:nowrap}
+.touch-guide{border-left:2px solid #be9b73;padding:12px 15px;margin:16px 0;background:#12212c99}.touch-guide strong{font-size:13px;color:#e6d2b7}.touch-guide p{font-size:12px!important;line-height:1.8!important;margin:8px 0!important;color:#c4d1d8!important}
+.sensitivity-setting{font-size:12px;margin:16px 0}.sensitivity-setting input{display:block;width:100%;height:44px;accent-color:#ccb08d}
+/* View options (src/view-settings.mjs): two checkboxes on one row under the sliders. */
+.toggle-settings{display:flex;flex-wrap:wrap;gap:6px 22px;margin:4px 0 14px}.toggle-setting{display:flex;align-items:center;gap:8px;min-height:44px;font-size:12px;color:#c4cecf;cursor:pointer}.toggle-setting input{width:20px;height:20px;margin:0;accent-color:#ccb08d}[data-fov-value]{float:right;color:#c4cecf}
+/* Music and effects volume (src/audio-settings.mjs): the percentage sits at the right of the label. */
+[data-volume-value]{float:right;color:#c4cecf}
+.touch-mode .modal-backdrop,.touch-mode .map-backdrop{padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);backdrop-filter:none}
+.touch-mode .modal{max-height:100%;overflow:auto;padding:12px 4px}.touch-mode .primary,.touch-mode .secondary{min-height:46px}.touch-mode .map-note{font-size:9px;line-height:1.5}.touch-mode .map-legend{gap:8px;font-size:9px;flex-wrap:wrap}.touch-mode .map-header h2{font-size:18px}.touch-mode .map-header p{margin-bottom:6px}
+.touch-mode #menu{overflow:auto;padding:75px var(--safe-right) 32px var(--safe-left)}.touch-mode .title-block{position:relative;left:auto;top:auto;max-width:520px;margin:0 auto}.touch-mode .mast{top:var(--safe-top);left:var(--safe-left);right:var(--safe-right)}.touch-mode .location-card{display:block;position:relative;inset:auto;width:auto;max-width:520px;margin:12px auto 0;padding:0}.touch-mode .location-card>*:not(button){display:none}.touch-mode #controls{min-height:44px;padding:10px 0}.touch-mode .title-block h1{font-size:68px}.touch-mode .intro{margin:18px 0}.touch-mode .entry-note{font-size:10px;line-height:1.7}.touch-mode .brand-sub,.touch-mode .weather-label{display:none}
+.touch-mode .illustrated-screen{padding-bottom:var(--safe-bottom)}.touch-mode .illustrated-screen .briefing-sheet,.touch-mode .illustrated-screen .result-modal{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+@media(orientation:landscape) and (max-height:550px){
+ .touch-mode #menu{padding-top:60px}.touch-mode .title-block{margin:0 5%;max-width:600px}.touch-mode .title-block h1{font-size:52px;margin:12px 0 8px}.touch-mode .english-title{display:none}.touch-mode .intro{margin:8px 0;font-size:11px}.touch-mode .quality-setting{margin:10px 0}.touch-mode .location-card{margin:0 5%;max-width:600px}.touch-mode .brand{font-size:11px}.touch-mode .eyebrow{font-size:8px}
+ .touch-mode #touch-move-zone{height:145px;width:155px;bottom:calc(var(--safe-bottom) + 14px)}.touch-mode .touch-actions{bottom:calc(var(--safe-bottom) + 28px);height:148px}.touch-mode #touch-stick{width:96px;height:96px}.touch-mode #notification{top:24%}
+ .touch-mode .illustrated-screen{display:block;padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left)}.touch-mode .illustrated-screen .story-art{position:fixed;inset:0;width:100%;height:100%;min-height:0;z-index:-2;object-position:70% center}.touch-mode .illustrated-screen::before{display:block;background:linear-gradient(90deg,#08111bf2,#08111bd9 55%,#08111b50)}.touch-mode .illustrated-screen .briefing-sheet,.touch-mode .illustrated-screen .result-modal{width:min(510px,80%);margin:0;padding:18px 20px}.touch-mode .illustrated-screen .briefing-sheet h2{font-size:27px}
+}
+@media(orientation:portrait){.touch-mode #touch-move-zone{width:155px;height:160px}.touch-mode .touch-actions{width:170px}.touch-mode .hud-top{gap:9px}.touch-mode .objective{flex:1 1 0;min-width:0;max-width:none}.touch-mode .top-actions{flex:none;margin-left:auto}.touch-mode #radar{top:calc(var(--safe-top) + 115px)}.touch-mode #compass{top:calc(var(--safe-top) + 185px)}.touch-mode .illustrated-screen .story-art{height:28vh}.touch-mode #notification{top:32%}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+
+body.touch-mode #hud .fire-hint{display:none}
+
+#boss-hud{position:absolute;top:105px;left:50%;transform:translateX(-50%);width:min(330px,40vw);text-align:center;color:#edc4a0;font-size:12px;letter-spacing:2px}#boss-hud>div{height:6px;margin-top:8px;background:#0b121bcc;border:1px solid #cbb29a55}#boss-health{display:block;height:100%;background:#c16647;transition:width .15s}.touch-mode #boss-hud{top:83px;font-size:10px;width:40%;letter-spacing:.5px}
+
+#interaction.danger{color:#ffad93;background:#301812dd;padding:8px 12px;border:1px solid #cf7259}#incoming-direction{position:fixed;left:50%;top:50%;width:180px;height:180px;pointer-events:none;z-index:8;opacity:0;text-align:center;color:#ff8364;font-size:24px}#incoming-direction span{display:block;transform:rotate(180deg)}
+
+/* Every modal scrolls inside its backdrop when taller than the window (touch mode also scrolls the sheet itself); a sheet that fits stays centred. The help sheet had no desktop rule and cut off its settings and 明白 at 1280x720 (Codex QA 2026-09-27). */
+.modal-backdrop{overflow-y:auto;place-items:start center}.modal-backdrop>.modal{margin:auto}
+#pause{overflow-y:auto;place-items:start center}#pause>.modal{margin:auto}#pause-feedback{margin-top:20px;border-top:1px solid #ffffff30;padding-top:16px}#pause-feedback summary{cursor:pointer;font-size:14px;padding:8px 0}#feedback-fields{border:0;padding:12px 0 0;margin:0}#feedback-fields legend{font-size:15px}#feedback-fields>label{font-size:12px}#feedback-comment{box-sizing:border-box;width:100%;margin-top:8px;background:#17242c;color:#eeeae1;border:1px solid #667780;padding:10px;font:14px/1.5 sans-serif;resize:vertical}.feedback-stars{display:flex;gap:8px;margin:8px 0 16px}.feedback-stars label{position:relative;cursor:pointer}.feedback-stars input{position:absolute;opacity:0;width:100%;height:100%;margin:0}.feedback-stars span{display:block;font-size:32px;color:#78888f;padding:4px}.feedback-stars label.filled span{color:#e6bd73}.feedback-stars input:focus-visible+span{outline:2px solid #eeeae1}.feedback-trap{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}#feedback-form .feedback-note{font-size:11px;margin:10px 0}#feedback-status{font-size:12px;margin:10px 0}#feedback-submit:disabled{opacity:.5}
+/* Vector symbols stay monochrome on iOS; never use emoji glyphs for controls. */
+.snow-symbol{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}.arrow-symbol{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.boot-emblem .snow-symbol{width:44px;height:44px;display:block;vertical-align:top}button{-webkit-appearance:none;appearance:none}
+.touch-mode #briefing{display:flex;flex-direction:column;height:100dvh;overflow:hidden;padding:0;background:#09121a}.touch-mode #briefing .story-art{position:relative;inset:auto;width:100%;height:24%;min-height:0;flex:0 0 24%;object-fit:cover;object-position:50% 55%;z-index:0}.touch-mode #briefing::before{display:none}.touch-mode #briefing .briefing-sheet{position:relative;display:flex;flex-direction:column;flex:1;min-height:0;overflow-y:auto;width:100%;max-width:600px;margin:0 auto;padding:16px max(22px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(22px,env(safe-area-inset-left))}.touch-mode #briefing .eyebrow{font-size:8px;letter-spacing:1.2px}.touch-mode #briefing .briefing-meta{font-size:10px;margin:10px 0 0}.touch-mode #briefing h2{font-size:26px;letter-spacing:2px;line-height:1.25;margin:12px 0}.touch-mode #briefing .mobile-story{font-size:13px;line-height:1.65;margin:0;color:#cbd4d9}.touch-mode #briefing .briefing-order{margin:14px 0 8px;padding:10px 14px}.touch-mode #briefing .briefing-order>span{font-size:9px}.touch-mode #briefing .briefing-order strong{font-size:17px;line-height:1.45;letter-spacing:1px}.touch-mode #briefing .briefing-actions{margin-top:18px;display:flex;gap:10px;flex-shrink:0}.touch-mode #briefing .briefing-actions .primary{min-height:48px;flex:1;background:#eeeae1;color:#151f26;font-weight:600;padding:0 18px;font-size:14px}.touch-mode #briefing .briefing-actions .secondary{min-width:70px;width:70px;padding:0 14px;min-height:48px}.touch-mode #briefing .briefing-fiction{display:none}
+@media(orientation:landscape){.touch-mode #briefing{flex-direction:row}.touch-mode #briefing .story-art{width:35%;height:100%;flex:0 0 35%}.touch-mode #briefing .briefing-sheet{padding:12px 22px;max-width:none}.touch-mode #briefing .eyebrow,.touch-mode #briefing .briefing-meta{display:none}.touch-mode #briefing h2{font-size:23px;margin:0 0 8px}.touch-mode #briefing .briefing-order{margin:8px 0;padding:7px 12px}}
+@media(max-height:660px) and (orientation:portrait){.touch-mode #briefing .story-art{height:18%;flex-basis:18%}.touch-mode #briefing .briefing-meta{display:none}.touch-mode #briefing .briefing-order{margin:8px 0}.touch-mode #briefing h2{font-size:23px;margin:8px 0}}
+
+.result-cta{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;text-align:left}
+.result-cta .cta-lead{font-size:12px;letter-spacing:1.2px;color:#cad4d9;margin:0 0 14px}
+.subscribe-cta .primary{width:100%;margin-top:10px}
+.subscribe-cta .cta-status{font-size:12px;line-height:1.7;color:#cad4d9;margin:10px 0 0;letter-spacing:.4px;overflow-wrap:anywhere}
+.subscribe-cta .cta-note{font-size:10px;line-height:1.85;color:#7e939d;margin:14px 0 0;letter-spacing:.2px}
+.subscribe-cta .cta-note a,.feedback-note a{color:#b3c4cb}
+.subscribe-fields{border:0;padding:0;margin:0;min-width:0}
+.subscribe-fields>label{display:block;font-size:11px;color:#9daeb7;letter-spacing:.6px;margin-top:18px}
+.subscribe-email{box-sizing:border-box;width:100%;margin-top:9px;background:#17242c;color:var(--paper);border:1px solid #667780;padding:11px;font:14px/1.5 sans-serif}
+.subscribe-email::placeholder{color:#6d7f88}
+.subscribe-fields:disabled{opacity:.6}
+.subscribe-submit:disabled{opacity:.5}
+button span.mute-label{font:inherit;display:inline;position:static;margin:0;padding:0}
+#pause-subscribe{margin-top:12px;border-top:1px solid #ffffff30;padding-top:8px}
+#pause-subscribe summary{cursor:pointer;font-size:14px;padding:8px 0}
+#pause-subscribe .subscribe-fields>label{margin-top:10px}
+.subscribe-consent{display:flex;gap:14px;align-items:flex-start;font-size:11px;line-height:1.7;color:#9daeb7;margin-top:13px;cursor:pointer}
+.subscribe-consent input{flex:0 0 auto;width:15px;height:15px;margin:2px 4px 0 0;accent-color:#e6bd73}
+.subscribe-trap{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+/* Co-op (behind ?coop=1): one column, one primary action per screen, the room code as the hero. */
+.coop-panel{margin-top:22px;max-width:400px;color:#c4cecf}
+.coop-panel .eyebrow{margin-bottom:12px}
+.coop-title{font-size:26px;font-weight:500;letter-spacing:.14em;margin:0 0 18px;color:#eeeae1}
+.coop-field{display:block;font-size:11px;letter-spacing:.18em;color:#9daeb7;margin:0 0 6px}
+.coop-input{display:block;width:100%;height:46px;box-sizing:border-box;font:inherit;font-size:15px;color:#eeeae1;background:#121b22cc;border:1px solid #ffffff40;padding:0 14px;border-radius:2px;letter-spacing:.08em;margin-bottom:14px}
+.coop-input:focus{outline:none;border-color:#e6bd73}
+.coop-code-input{width:128px;text-transform:uppercase;font-size:18px;letter-spacing:.34em;text-align:center;margin:0}
+.coop-panel .primary,.coop-panel .secondary{width:100%;margin:0;height:49px;justify-content:space-between}
+.coop-or{display:flex;align-items:center;gap:12px;margin:14px 0;color:#7e939d;font-size:11px;letter-spacing:.2em}
+.coop-or::before,.coop-or::after{content:"";flex:1;height:1px;background:#ffffff1f}
+.coop-join{display:flex;gap:10px;align-items:stretch}
+.coop-join .secondary{flex:1;height:46px;min-width:0}
+.coop-text{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;padding:12px 0;min-height:44px;color:#9daeb7;font-size:11px;letter-spacing:.18em;cursor:pointer}
+.coop-text:hover,.coop-text:focus-visible{color:#fff;outline:none}
+.back-symbol,.copy-symbol,.share-symbol{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.share-symbol{width:18px;height:18px}
+.coop-room{display:flex;align-items:center;gap:22px;margin:4px 0 18px}
+.coop-code{display:inline-flex;align-items:center;gap:12px;background:transparent;border:0;padding:6px 0;cursor:pointer;color:#f2d0a0;min-height:44px}
+.coop-code strong{font-size:44px;font-weight:300;letter-spacing:.32em;line-height:1;text-shadow:0 2px 12px #0008}
+.coop-code .copy-symbol{width:20px;height:20px;color:#9daeb7;transition:color .2s}
+.coop-code:hover .copy-symbol,.coop-code:focus-visible .copy-symbol{color:#fff}
+.coop-code:focus-visible{outline:none}
+.coop-qr{display:block;width:120px;height:120px;background:#fff;border-radius:2px;flex:0 0 auto}
+.coop-seats{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:6px}
+.coop-seats li{display:flex;align-items:center;justify-content:space-between;height:40px;padding:0 12px;border:1px solid #ffffff22;border-radius:2px;font-size:13px;letter-spacing:.08em;color:#eeeae1;background:#0d141980}
+.coop-seats li.coop-empty{border-style:dashed;border-color:#ffffff14;background:transparent}
+.coop-seats li.coop-off{color:#6d8a99;border-color:#ffffff14}
+.coop-seats .coop-tag{font-size:10px;letter-spacing:.2em;color:#f2d0a0}
+.coop-hint{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:#9daeb7;font-size:11px;letter-spacing:.16em}
+.coop-hint i{width:7px;height:7px;border-radius:50%;background:#7fd7ff;animation:coop-pulse 1.6s ease-in-out infinite}
+@keyframes coop-pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.coop-actions{display:grid;gap:10px}
+.coop-actions .coop-text{justify-self:start}
+.coop-status{margin:12px 0 0;color:#eeeae1;font-size:11px;letter-spacing:.14em}
+.coop-wait{color:#9daeb7;font-size:12px;letter-spacing:.16em;margin:10px 0}
+body.coop-focus .menu-actions,body.coop-focus .quality-setting,body.coop-focus .entry-note,body.coop-focus .location-card,body.coop-focus .intro,body.coop-focus .english-title{display:none}
+/* Focus mode keeps the title as a one-line masthead so the room fits an 800 px window without scrolling. */
+body.coop-focus:not(.touch-mode) .title-block{top:9%}
+body.coop-focus .title-block h1{font-size:44px;display:flex;gap:6px;margin:10px 0 4px}
+body.coop-focus .title-block h1 span{display:inline}
+body.coop-focus .coop-panel{margin-top:14px}
+#menu{overflow:auto}
+/* The squad list is the last entry of the objective column (Arthur 2026-09-28: placed on its own it covered a long
+   objective's progress line): chapter, objective, progress, squad, one under the other. */
+#squad{margin-top:4px;display:flex;flex-direction:column;gap:5px;font-size:11px;letter-spacing:1px;color:#c4cecf}
+#squad div{display:flex;align-items:center;gap:8px}#squad i{display:block;width:70px;height:4px;background:#ffffff26;position:relative}#squad i b{position:absolute;left:0;top:0;bottom:0;background:#7fd7ff}#squad .down{color:#ffb9a3}#squad .down i{background:#ffb9a340}#squad .down i b{background:#ffb9a3}
+body.touch-mode #squad{margin-top:2px;font-size:10px}body.touch-mode #squad i{width:50px}
+body.touch-mode .coop-panel{max-width:100%}
+body.touch-mode .coop-title{font-size:22px}
+body.touch-mode .coop-code strong{font-size:38px}
+body.touch-mode .coop-qr{width:104px;height:104px}
+@media(prefers-reduced-motion:reduce){.coop-hint i{animation:none;opacity:1}}
+
+.maps-screen{justify-content:center;padding:0}.maps-sheet{width:min(1040px,100%);padding:calc(28px + env(safe-area-inset-top,0px)) 6% 36px;margin:auto 0}.maps-head{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}.maps-back{align-self:flex-start;min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 6px 0 0;background:transparent;font-size:11px;letter-spacing:2px;color:#c9cece}.maps-back:hover,.maps-back:focus-visible{color:#fff}.maps-back .back-symbol{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}#maps-title{outline:none;margin:0;font-family:"Songti TC","Noto Serif CJK TC","PMingLiU",serif;font-size:clamp(34px,4.6vw,56px);letter-spacing:.14em;font-weight:500;line-height:1.1}
+.map-grid{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}.map-tile{position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:1px solid #ffffff26;background:linear-gradient(160deg,#16222d,#0a1118);color:inherit;overflow:hidden;text-align:left;cursor:pointer;transition:transform .18s ease-out,border-color .18s ease-out}.map-tile .tile-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;transition:transform .3s ease-out}.map-tile .tile-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0a111899 0%,transparent 34%,transparent 56%,#070d16f2 100%)}.map-tile .tile-kicker{position:absolute;left:18px;top:16px;font-size:10px;letter-spacing:2.5px;color:#d5dedf;text-shadow:0 1px 8px #000}.map-tile .tile-name{position:absolute;left:18px;bottom:18px;font-family:"Songti TC","Noto Serif CJK TC","PMingLiU",serif;font-size:clamp(26px,3vw,36px);letter-spacing:.12em;line-height:1;text-shadow:0 2px 14px #000}.map-tile .tile-state{position:absolute;right:16px;bottom:20px;font-size:10px;letter-spacing:2px;padding:7px 10px;border:1px solid #ffffff55;background:#0b131caa;color:#eeeae1}.map-tile .tile-state:empty{display:none}.map-tile:hover .tile-art,.map-tile:focus-visible .tile-art{transform:scale(1.04)}.map-tile:hover,.map-tile:focus-visible{border-color:#eeeae1aa}.map-tile:active{transform:scale(.985)}.map-tile[aria-current="true"]{border-color:#eeeae1}.map-tile[aria-current="true"] .tile-state{background:#eeeae1;color:#171d22;border-color:#eeeae1}.map-tile.teaser{cursor:default}.map-tile.teaser .tile-art{filter:saturate(.35) brightness(.55)}.map-tile.teaser .tile-name{color:#aab4b9}.map-tile.teaser .tile-state{color:#e6c98a;border-color:#e6c98a66}.map-tile.teaser:hover .tile-art{transform:none}.map-tile.teaser:active{transform:none}
+@media(prefers-reduced-motion:reduce){.map-tile,.map-tile .tile-art{transition:none}.map-tile:hover .tile-art,.map-tile:focus-visible .tile-art,.map-tile:active{transform:none}}
+@media(max-width:800px){.maps-sheet{padding:calc(18px + env(safe-area-inset-top,0px)) 16px 28px}.map-grid{gap:12px}}
+@media(max-height:550px){.maps-sheet{padding-top:calc(12px + env(safe-area-inset-top,0px))}.maps-head{gap:6px;margin-bottom:12px}#maps-title{font-size:30px}.map-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}.map-tile{aspect-ratio:16/8.5}}
+
+.mission-interact{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;border-radius:50%;background:transparent;color:inherit;pointer-events:none;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.touch-mode .mission-interact:not(:disabled){pointer-events:auto;cursor:pointer}.mission-interact:active:not(:disabled){background:#b7e8dc22}.mission-interact:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+/* Determinate SVG ring: progress comes only from the mission clock, never a CSS timer. */
+.rescue-progress{position:absolute;left:50%;top:58%;transform:translateX(-50%);width:80px;height:80px;color:#b7e8dc;pointer-events:none;filter:drop-shadow(0 2px 5px #000)}
+.rescue-progress[hidden]{display:none}.rescue-progress svg{width:100%;height:100%;transform:rotate(-90deg)}
+.rescue-progress .mission-interact{background:transparent;border:0;color:inherit}
+.rescue-progress circle{fill:#071419b3;stroke:#c4e4dd40;stroke-width:4}.rescue-progress #rescue-arc{fill:none;stroke:currentColor;stroke-linecap:round}
+#rescue-value{position:absolute;inset:0;display:grid;place-items:center;font-size:23px;font-variant-numeric:tabular-nums;letter-spacing:0}
+#rescue-label{position:absolute;top:88px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;letter-spacing:2px}
+.rescue-progress[data-state="interrupted"]{color:#ffc28a}.rescue-progress[data-state="complete"]{color:#d6f6e8}
+body.touch-mode .rescue-progress{top:48%;width:68px;height:68px}body.touch-mode #rescue-label{top:74px}
+body.touch-mode #rescue-value{font-size:15px;white-space:nowrap}
+body:has(.rescue-progress:not([hidden])) #interaction{top:calc(58% + 120px)}
+body.touch-mode:has(.rescue-progress:not([hidden])) #interaction{top:calc(48% + 104px)}
+
+/* Hosted entry remains lightweight until a district is chosen. */
+.entry-landing #menu{background:#080f17;isolation:isolate}.menu-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;pointer-events:none}.entry-landing #menu::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#080f17db 0%,#080f1760 62%,#080f1722);z-index:-1;pointer-events:none}
+.entry-landing #world{visibility:hidden}
+
+/* Keep the shooting hint on its own row above the weapon label. */
+.ammo-panel .fire-hint{display:block;width:fit-content;margin-left:auto}
+body.is-exploring .ammo-panel .fire-hint{display:block}
+
+.briefing-more{background:none;border:0;color:#afbdc5;padding:8px 0;font-size:12px;text-decoration:underline;cursor:pointer}#begin-label{font-weight:inherit}
+#help{z-index:13}
+
+.game-about-link{font-size:12px;margin:8px 0 16px;line-height:1.5}.game-about-link a{color:#bbc8cd;text-underline-offset:3px}
+
+/* Important information and actions precede artwork on every narrow/touch screen. */
+#maps{background:#0a1118;overflow-y:auto;align-items:flex-start}.maps-sheet{margin:0 auto}
+#result{overflow-y:auto;align-items:start;background:#0a1118;padding:28px max(24px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
+#result .result-modal{width:min(580px,100%);margin:0 auto;padding:0}#result-art{position:relative;inset:auto;display:block;width:100%;height:auto;min-height:0;aspect-ratio:3/2;object-fit:cover;z-index:auto;margin:24px 0 0}
+@media(max-width:800px){#briefing .story-art{position:relative;inset:auto;display:block;width:100%;height:auto;min-height:0;aspect-ratio:3/2;z-index:0;margin-top:20px}}
+.touch-mode #briefing{display:block;height:100dvh;overflow-y:auto;padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left)}
+/* Keep mobile actions inside the dynamic viewport, independent of story length.
+   The sheet reserves the full bar height plus a reading gap at its end.
+   Leave 92px on the right for the existing 82px music control and a 10px gap. */
+.touch-mode #briefing .briefing-sheet{display:block;width:100%;max-width:600px;overflow:visible;margin:0 auto;padding:18px 22px calc(80px + var(--safe-bottom))}
+/* The bar spans the screen, its buttons the text column above (Arthur 2026-09-28: 開始行動 starts where the title does):
+   the column is at most 600 px wide, centred, with 22 px of padding; 92 px on the right stay for the music control. */
+.touch-mode #briefing .briefing-actions{--briefing-inset:calc((100vw - var(--safe-left) - var(--safe-right) - 600px) / 2 + 22px);position:fixed;left:var(--safe-left);right:var(--safe-right);bottom:0;z-index:1;margin:0;padding:12px max(92px,var(--briefing-inset)) var(--safe-bottom) max(22px,var(--briefing-inset));background:#09121a}
+.touch-mode #briefing .story-art{position:relative;inset:auto;width:100%;height:auto;min-height:0;aspect-ratio:3/2;z-index:0;margin-top:20px}
+.rescue-progress{z-index:8}#rescue-meter,#rescue-value,#rescue-label{pointer-events:none}
+
+/* Optional menu music stays outside the primary navigation and combat HUD. */
+/* The music button and 遊戲背景 are small plates of the menu's 戰術切角 (Arthur 2026-09-29): gunmetal, cut corners, a lit top
+   edge; hover lights the edge amber, a press pushes the plate down (.is-pressed on phones, src/menu-press.mjs). The music
+   button stays within the 82 px the phone briefing's action bar leaves for it. */
+.menu-music-toggle,.mast-about{--cut:8px;background:#17212aeb;color:#eeeae1;border:0;border-radius:0;font-weight:600;letter-spacing:.1em;text-decoration:none;clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));box-shadow:inset 0 1px 0 #ffffff33,inset 0 -2px 0 #0000005c;-webkit-tap-highlight-color:transparent;transition:background .1s,color .1s,transform .06s,box-shadow .06s}
+@media(hover:hover){.menu-music-toggle:hover,.mast-about:hover{background:#243240f2;color:#fff;box-shadow:inset 0 2px 0 var(--ui-amber),inset 0 -2px 0 #0000005c}}
+.menu-music-toggle:focus-visible,.mast-about:focus-visible{outline:0;box-shadow:inset 0 0 0 2px #fff}
+.menu-music-toggle:is(:active,.is-pressed),.mast-about:is(:active,.is-pressed){transform:translateY(2px);background:#0f171e;box-shadow:inset 0 3px 6px #000000a6}
+.menu-music-toggle{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:110;padding:0 11px;font-size:13px;min-height:44px}
+.menu-music-toggle[hidden]{display:none}
+
+#menu .english-title{letter-spacing:.24em}
+#menu .menu-setting{font-size:clamp(10px,1.1vw,14px);letter-spacing:.055em;line-height:1.7;margin:14px 0 18px;color:#c7d0d5}
+@media(max-width:800px){#menu .english-title{font-size:11px;letter-spacing:.2em}#menu .menu-setting{font-size:11px;letter-spacing:.02em}}
+@media(max-height:550px){#menu .menu-setting{margin:8px 0;font-size:10px}}
+
+.mast-about{display:inline-flex;align-items:center;height:34px;padding:0 12px;font-size:12px;margin:0}.mast .weather{display:flex;align-items:center}.mast .weather .live-dot{margin-left:3px}
+@media(max-width:800px){.brand{font-size:9px;letter-spacing:1.5px}.mast-about{font-size:11px;height:32px;padding:0 10px}}
+
+.menu-backdrop-fallback{position:absolute;inset:0;background-position:center;background-size:cover;z-index:-3;pointer-events:none;animation:menu-pan 50s ease-in-out infinite alternate}.menu-backdrop-fallback.video-ready{display:none}@keyframes menu-pan{from{transform:scale(1.04) translate3d(-1.5%,0,0)}to{transform:scale(1.04) translate3d(1.5%,0,0)}}.menu-backdrop{display:block!important}
+@media(prefers-reduced-motion:reduce){.menu-backdrop-fallback{animation:none}}
+
+/* Preserve authored paragraph breaks in mission briefings. */
+#level-story,#briefing-mobile{white-space:pre-line}
+
+/* Results have one page scroller and one primary action, before artwork/signup. */
+#result{height:100dvh}
+#result .result-modal{max-height:none;overflow:visible;min-height:0}
+#result-copy{white-space:pre-line;font-size:14px;line-height:1.8;margin:12px 0 18px}
+#result .results-grid{grid-template-columns:max-content max-content max-content;justify-content:space-between;column-gap:12px;margin:18px 0;padding:16px 0}
+#result .results-grid strong{white-space:nowrap;margin-top:8px}
+.result-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.result-actions>button{width:100%;min-width:0;min-height:44px;height:auto;padding:12px 16px}
+.result-actions>.primary,.result-actions>#result-wait,.result-actions>.primary+#result-menu{grid-column:1/-1}
+#retry-label,#next-district-label,#next-level-label{font-size:inherit;font-weight:inherit}
+/* A room's result card (game.js coopBetween): the countdown across the card, 離開房間 a small link under the buttons, never
+   a button of its own (Arthur 2026-09-28). */
+.result-actions>.result-leave{grid-column:1/-1;justify-self:center;width:auto;min-height:44px;padding:8px 12px;border:0;background:none;box-shadow:none;color:#b3c2c9;font-size:13px;letter-spacing:.08em;text-decoration:underline;text-underline-offset:4px}
+.result-actions>.result-leave[hidden]{display:none}
+/* A district's last level, won alone (finalThanks, src/result-screen.mjs): the thanks under the story with the share button
+   right below it (Arthur 2026-09-28: seen without scrolling on a phone), then below the actions the rating form (moved here
+   from the pause menu, src/feedback.mjs). */
+#result-thanks{font-size:14px;line-height:1.8;letter-spacing:.04em;color:#d9c29c;margin:0 0 18px}
+#result-feedback{border-top:1px solid var(--line);margin-top:24px;padding-top:4px;text-align:left}
+#result-rating{border-bottom:1px solid var(--line);padding-bottom:18px}
+#result-share{margin:0 0 20px}
+#share-status{font-size:12px;line-height:1.7;margin:10px 0 0;overflow-wrap:anywhere}
+/* The run's score (src/score-ui.mjs, LEADERBOARD.md「計分」): the total and the level's best, then the parts as a ledger. */
+#result-score{margin:0 0 22px}
+#result-score .score-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+#result-score .score-head span{font-size:11px;letter-spacing:.14em}
+#score-total{font-family:var(--ui-cond);font-size:44px;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:#e8dcc4;white-space:nowrap}
+#result-score[data-outcome="lost"] #score-total{color:var(--paper)}
+.score-best{margin:2px 0 10px;font-size:12px;line-height:1.7;letter-spacing:.06em;color:#9daeb7}
+.score-best.record{color:#d9c29c}
+.score-parts{list-style:none;margin:0;padding:8px 0 0;border-top:1px solid #ffffff1a;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+.score-parts li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;line-height:2;color:#c2ced3}
+.score-parts b{font-family:var(--ui-cond);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--paper);white-space:nowrap}
+.score-parts .minus b{color:#ef927d}.score-parts .zero b{color:#7d8b91}
+@media(max-width:600px){.score-parts{grid-template-columns:minmax(0,1fr)}#score-total{font-size:36px}}
+@media(max-width:600px){#result{padding:20px max(18px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}#result-title{font-size:36px;margin:14px 0}#result .results-grid strong{font-size:26px}}
+
+/* Menu, district picker and loading screen (ui-polish). Visual layer only: no DOM ids, handlers or load steps change.
+   Motion is compositor-only (opacity/transform) and entrance-only, so no control waits on an animation to accept input;
+   fill-mode backwards leaves :active/:hover transforms free once an entrance ends. */
+:root{--ui-cond:"Bahnschrift SemiCondensed","DIN Condensed","Avenir Next Condensed","Roboto Condensed","Arial Narrow",sans-serif;--ui-ease:cubic-bezier(.2,.8,.2,1);--ui-amber:#e6bd73}
+@keyframes ui-rise{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
+@keyframes ui-slide{from{opacity:0;transform:translate3d(-16px,0,0)}to{opacity:1;transform:none}}
+@keyframes ui-fade{from{opacity:0}to{opacity:1}}
+@keyframes boot-drift{from{transform:scale(1.09)}to{transform:scale(1.01)}}
+
+/* Main menu: one vertical column of mode buttons, 開始劇情 (primary) on top, 多人模式 second, 探索地圖 last.
+   Buttons: 戰術切角 (Arthur 2026-09-29, menu-style): chamfered plates that press in like a physical button (Call of Duty:
+   Mobile, Apex Legends, The Division 2). 開始劇情 is a sodium-amber plate; the others gunmetal with a lit top edge. A slash
+   mark (///) sits where the arrow was: always on 開始劇情, on the others when hovered, focused or pressed, with their top
+   edge turning amber and the label stepping right. A press pushes the plate 2 px down with an inner shadow; on phones the
+   button carries .is-pressed while the finger is down (src/menu-press.mjs). The plates snap in from the left. */
+.entry-landing #menu::before{background:linear-gradient(90deg,#070d14e8 0%,#080f17a8 30%,#080f1733 60%,#080f1714 100%),linear-gradient(0deg,#070d14d0 0%,transparent 36%)}
+#menu{--menu-cjk:"PingFang TC","Heiti TC","Microsoft JhengHei","Noto Sans CJK TC","Noto Sans TC",sans-serif;--menu-num:"DIN Condensed","Bahnschrift SemiCondensed","Avenir Next Condensed","Roboto Condensed","Arial Narrow"}
+#menu .brand{font-family:var(--ui-cond);font-size:15px;letter-spacing:.26em;font-weight:600}
+#menu .title-block h1{animation:ui-rise .7s var(--ui-ease) backwards}
+#menu .title-block .intro{animation:ui-rise .7s .08s var(--ui-ease) backwards}
+#menu .menu-actions{flex-direction:column;flex-wrap:nowrap;gap:10px;width:min(360px,100%)}
+#menu .menu-actions>button{--cut:14px;position:relative;isolation:isolate;overflow:hidden;width:100%;min-width:0;min-height:0;height:56px;padding:0 64px 0 24px;border:0;background:#17212aeb;color:#eeeae1;font-family:var(--menu-cjk);font-size:18px;font-weight:600;letter-spacing:.14em;clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));box-shadow:inset 0 1px 0 #ffffff33,inset 0 -3px 0 #0000005c;-webkit-tap-highlight-color:transparent;transition:background .1s,padding-left .12s var(--ui-ease),transform .06s,box-shadow .06s;animation:menu-plate-in .24s .1s cubic-bezier(.2,1.5,.4,1) backwards}
+#menu .menu-actions>button:nth-child(2){animation-delay:.16s}#menu .menu-actions>button:nth-child(3){animation-delay:.22s}
+/* The arrows (↗ ↗ →, a web "external link" idiom) give way to the slash mark. */
+#menu .menu-actions>button>span:not(.mp-cta-text){display:none}
+#menu .menu-actions>button::before{content:"";position:absolute;inset:50% 24px auto auto;width:30px;height:16px;margin-top:-8px;z-index:1;background:repeating-linear-gradient(115deg,currentColor 0 3px,transparent 3px 8px);opacity:0;transition:opacity .1s}
+#menu .menu-actions>.primary{height:60px;background:#f0b845;color:#14100a;font-size:20px;box-shadow:inset 0 1px 0 #fff4d299,inset 0 -4px 0 #9c6b1470}
+#menu .menu-actions>.primary::before{opacity:.5}
+/* 多人模式 (Arthur 2026-09-27 evening): the bright edge, the 測試版 tag, 合作 · 對戰 under it and the live count from the
+   public room list (src/menu-multiplayer.mjs). The plate itself is amber and an inner dark plate leaves a 1.5 px amber
+   edge that follows the cut corners. Taller than its neighbours for the second line. */
+#menu .menu-actions>.mp-cta{height:66px;background:var(--ui-amber);box-shadow:none}
+#menu .menu-actions>.mp-cta::after{content:"";position:absolute;inset:1.5px;z-index:-1;background:#121b23;clip-path:polygon(0 0,calc(100% - var(--cut) + 1px) 0,100% calc(var(--cut) - 1px),100% 100%,calc(var(--cut) - 1px) 100%,0 calc(100% - var(--cut) + 1px));transition:background .1s}
+#menu .menu-actions>.mp-cta::before{color:var(--ui-amber)}
+#menu .menu-actions>.mp-cta>.mp-cta-text{display:flex;flex-direction:column;align-items:flex-start;gap:5px;transform:none}
+/* #menu .mp-cta: stronger than the arrow rule `.secondary span{font-size:19px}`. */
+#menu .mp-cta .mp-cta-title{display:flex;align-items:center;font-size:18px;font-weight:600;letter-spacing:.14em;color:#eeeae1}
+#menu .mp-cta .mp-cta-title .status-tag{font-size:10px;font-weight:700;letter-spacing:.08em;padding:4px 10px 3px;margin:0 0 0 12px;border:0;border-radius:0;background:var(--ui-amber);color:#14100a;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%)}
+#menu .mp-cta .mp-cta-sub{display:flex;align-items:center;font-size:11px;letter-spacing:.16em;font-weight:400;color:#c3cbcd}
+#menu .mp-cta .mp-cta-live{display:inline-flex;align-items:center;gap:6px;margin-left:12px;font-size:11px;color:#eeeae1}#menu .mp-cta .mp-cta-count{font-family:var(--menu-num),var(--menu-cjk);font-size:13px;letter-spacing:.06em}.mp-cta-live i{width:6px;height:6px;border-radius:50%;background:#7cc58a;box-shadow:0 0 8px #7cc58acc;animation:mp-live 1.8s ease-in-out infinite}
+@keyframes mp-live{50%{opacity:.35}}
+@media(prefers-reduced-motion:reduce){.mp-cta-live i{animation:none}}
+/* clip-path would cut an outline off, so focus is drawn inside the plate (the edge, on 多人模式). */
+#menu .menu-actions>button:focus-visible{outline:0;box-shadow:inset 0 0 0 2px #fff}
+#menu .menu-actions>.mp-cta:focus-visible{background:#fff}
+#menu .menu-actions>button:is(:focus-visible,:active,.is-pressed)::before{opacity:.6}
+@media(hover:hover){
+ #menu .menu-actions>button:hover::before{opacity:.6}
+ #menu .menu-actions>.secondary:hover{background:#243240f2;color:#fff;padding-left:30px;box-shadow:inset 0 2px 0 var(--ui-amber),inset 0 -3px 0 #0000005c}
+ #menu .menu-actions>.mp-cta:hover{background:#ffcf7a;box-shadow:none}
+ #menu .menu-actions>.mp-cta:hover::after{background:#1b2833}
+ #menu .menu-actions>.mp-cta:hover .mp-cta-sub,#menu .menu-actions>.mp-cta:hover .mp-cta-live{color:#dfe5e6}
+ #menu .menu-actions>.primary:hover{background:#ffc95a;padding-left:30px}
+}
+#menu .menu-actions>button:is(:active,.is-pressed){transform:translateY(2px);background:#0f171e;box-shadow:inset 0 3px 7px #000000a6}
+#menu .menu-actions>.primary:is(:active,.is-pressed){background:#d39a2c;box-shadow:inset 0 3px 7px #5a3a0699}
+#menu .menu-actions>.mp-cta:is(:active,.is-pressed){background:#d39a2c;box-shadow:none}
+#menu .menu-actions>.mp-cta:is(:active,.is-pressed)::after{background:#3a2d12}
+@keyframes menu-plate-in{from{opacity:0;transform:translate3d(-18px,0,0)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#menu .menu-actions>button{animation:none}}
+@media(max-height:550px){#menu .menu-actions>button,#menu .menu-actions>.primary{height:46px}#menu .menu-actions>.mp-cta{height:54px}#menu .mp-cta .mp-cta-sub,#menu .mp-cta .mp-cta-live{font-size:10px}}
+/* Phones: title at the top, the column at the bottom where thumbs rest, above the fixed music button. */
+.touch-mode #menu .menu-actions>button{height:58px}
+.touch-mode #menu .menu-actions>.primary{height:62px}
+.touch-mode #menu .menu-actions>.mp-cta{height:66px}
+@media(orientation:portrait){
+ .touch-mode #menu{display:flex;flex-direction:column;padding:calc(var(--safe-top) + 62px) var(--safe-right) calc(var(--safe-bottom) + 66px) var(--safe-left)}
+ .touch-mode #menu .title-block{flex:1 0 auto;display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;padding:0 8px}
+ .touch-mode #menu .title-block h1{font-size:clamp(64px,19vw,86px)}
+ .touch-mode #menu .menu-actions{margin-top:auto;width:100%}
+ .entry-landing.touch-mode #menu::before{background:linear-gradient(180deg,#070d14e0 0%,#070d1466 26%,#070d1426 48%,#070d14b8 76%,#070d14f0 100%)}
+}
+@media(orientation:landscape) and (max-height:550px){
+ .touch-mode #menu{padding:calc(var(--safe-top) + 50px) var(--safe-right) var(--safe-bottom) var(--safe-left)}
+ .touch-mode #menu .title-block h1{margin:6px 0 4px}
+ .touch-mode #menu .menu-setting{margin:0 0 12px}
+ .touch-mode #menu .menu-actions{width:min(330px,100%);gap:7px}
+ .touch-mode #menu .menu-actions>button{--cut:11px;height:44px;font-size:16px}
+ .touch-mode #menu .menu-actions>.primary{height:48px;font-size:18px}
+ .touch-mode #menu .menu-actions>.mp-cta{height:54px}
+ .touch-mode #menu .mp-cta .mp-cta-title{font-size:16px}
+}
+
+/* District picker: the cards share the viewport height, so every district (3 today) shows without scrolling. */
+#maps{background:radial-gradient(ellipse at 50% -10%,#172631 0%,#0a1118 62%)}
+#maps .maps-sheet{display:flex;flex-direction:column;justify-content:center;width:min(1280px,100%);height:100%;min-height:0;margin:0 auto;padding:calc(24px + env(safe-area-inset-top,0px)) max(24px,4vw) 44px}
+#maps .maps-head{flex-direction:row;align-items:center;gap:18px;margin:0 0 20px;animation:ui-fade .35s ease-out backwards}
+#maps .maps-head .eyebrow{display:none}
+#maps .maps-back{font-size:13px;letter-spacing:.1em}
+#maps-title{font-family:inherit;font-size:clamp(22px,2.1vw,30px);font-weight:600;letter-spacing:.14em;line-height:1.2}
+#maps .map-grid{flex:0 0 auto;height:min(66vh,640px);grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));grid-auto-rows:minmax(0,1fr);gap:12px}
+#maps .map-grid>li{min-height:0;animation:ui-rise .45s var(--ui-ease) backwards}
+#maps .map-grid>li:nth-child(2){animation-delay:.06s}#maps .map-grid>li:nth-child(3){animation-delay:.12s}#maps .map-grid>li:nth-child(4){animation-delay:.18s}#maps .map-grid>li:nth-child(n+5){animation-delay:.24s}
+#maps .map-tile{height:100%;aspect-ratio:auto;border-radius:2px;border-color:#ffffff1f;transition:transform .18s var(--ui-ease),border-color .2s,filter .25s}
+#maps .map-tile .tile-art{object-position:center 55%;transition:transform .5s var(--ui-ease)}
+#maps .map-tile .tile-shade{background:linear-gradient(180deg,#070d1659 0%,transparent 26%,transparent 48%,#070d16f2 100%)}
+#maps .map-tile .tile-kicker{top:auto;left:22px;bottom:calc(32px + clamp(24px,2.3vw,32px));font-family:var(--ui-cond);font-size:13px;letter-spacing:.22em;color:#dfe6e6d9}
+#maps .map-tile .tile-name{left:22px;right:22px;bottom:22px;font-family:inherit;font-weight:600;font-size:clamp(24px,2.3vw,32px);letter-spacing:.1em;line-height:1}
+#maps .map-tile .tile-state{top:14px;right:14px;bottom:auto;font-size:11px;letter-spacing:.12em;padding:6px 9px;border-radius:2px}
+/* A status beside a title or on a button (multiplayer 測試版), in the map card status style. */
+.status-tag{display:inline-block;vertical-align:middle;font-size:11px;letter-spacing:.12em;line-height:1;padding:5px 8px;margin:0 6px;border:1px solid #ffffff55;border-radius:2px;background:#0b131caa;color:#eeeae1;font-weight:400;white-space:nowrap}
+#maps .map-tile::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,#ffffff1f 50%,transparent 65%);transform:translateX(-110%)}
+@media(hover:hover){
+ #maps .map-grid:has(.map-tile:not(:disabled):hover) .map-tile:not(:hover){filter:brightness(.6) saturate(.8)}
+ #maps .map-tile:not(:disabled):hover{border-color:#eeeae1b3}
+ #maps .map-tile:not(:disabled):hover .tile-art{transform:scale(1.05)}
+ #maps .map-tile:not(:disabled):hover::after{transform:translateX(110%);transition:transform .9s var(--ui-ease)}
+}
+#maps .map-tile:focus-visible{outline:2px solid var(--ui-amber);outline-offset:3px}
+.touch-mode #maps .maps-sheet{justify-content:flex-start;padding:calc(var(--safe-top) + 6px) calc(var(--safe-right) + 2px) calc(var(--safe-bottom) + 64px) calc(var(--safe-left) + 2px)}
+.touch-mode #maps .maps-head{margin-bottom:12px}
+.touch-mode #maps .map-grid{flex:1 1 auto;height:auto;min-height:0;grid-auto-rows:minmax(112px,1fr);gap:10px}
+.touch-mode #maps .map-tile .tile-name{font-size:26px}.touch-mode #maps .map-tile .tile-kicker{bottom:58px;font-size:12px}
+@media(orientation:landscape) and (max-height:550px){
+ .touch-mode #maps .maps-sheet{padding:calc(var(--safe-top) + 2px) var(--safe-right) calc(var(--safe-bottom) + 58px) var(--safe-left)}
+ .touch-mode #maps .maps-head{margin-bottom:6px}
+ .touch-mode #maps .map-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));grid-auto-rows:minmax(0,1fr)}
+ .touch-mode #maps .map-tile .tile-name{font-size:22px;left:16px;bottom:16px}.touch-mode #maps .map-tile .tile-kicker{left:16px;bottom:46px;font-size:11px}
+}
+@media(max-height:550px) and (min-width:801px){#maps .map-grid{height:min(58vh,640px)}#maps .maps-head{margin-bottom:10px}}
+
+/* Loading: the chosen district's name and darkened art (hosted only), progress along the bottom, activity mark top right.
+   The bar still moves only on measured work (loading-ui.mjs); the spinning mark is the only sign of unmeasured waits. */
+#boot{display:block;background:radial-gradient(ellipse at 30% 100%,#1a2c37 0%,#0a1117 70%);animation:ui-fade .3s ease-out backwards}
+#boot .boot-art{position:absolute;inset:0;z-index:-3;background:var(--boot-art,none) center 55%/cover no-repeat;opacity:0;transition:opacity .9s ease-out}
+#boot.has-art .boot-art{opacity:.62;animation:boot-drift 28s ease-out forwards}
+#boot::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(0deg,#060b10f5 0%,#060b10c4 30%,#060b1040 70%,#060b1099 100%),linear-gradient(90deg,#060b10b3 0%,transparent 60%)}
+#boot .boot-brand{position:absolute;left:4.6%;top:34px;margin:0;font-family:var(--ui-cond);font-size:15px;font-weight:600;letter-spacing:.26em;color:#e3e9e8}
+#boot .boot-emblem{position:absolute;right:4.6%;top:24px;width:44px;height:44px}
+#boot .boot-emblem span{font-size:22px}#boot .boot-emblem .snow-symbol{width:22px;height:22px}
+#boot .boot-panel{position:absolute;left:8%;bottom:11%;width:min(560px,84%)}
+#boot .boot-district{display:flex;flex-direction:column;gap:10px;margin-bottom:6px;animation:ui-rise .6s var(--ui-ease) backwards}
+#boot .boot-district[hidden]{display:none}
+#boot-english{font-family:var(--ui-cond);font-size:14px;letter-spacing:.26em;color:#d4dcdcd9}
+#boot-name{font-size:clamp(34px,4.2vw,58px);font-weight:600;letter-spacing:.1em;line-height:1.1}
+#boot .boot-panel>p{margin:6px 0 28px;font-family:inherit;font-size:14px;letter-spacing:.3em;color:#c3cdd1}
+#boot #boot-district[hidden]+p{font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:.2em;color:var(--paper);margin-bottom:30px}
+#boot .boot-status{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:10px}
+#boot #boot-stage{font-size:12px;letter-spacing:.1em;color:#c3cfd4;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#boot #boot-percent{margin:0;font-family:var(--ui-cond);font-size:24px;letter-spacing:.06em;color:var(--paper);font-variant-numeric:tabular-nums}
+#boot .boot-track{width:100%;height:3px;margin:0;background:#ffffff1f;overflow:visible}
+#boot .boot-track i{background:var(--paper);box-shadow:0 0 12px #ffffffa0,0 0 2px #fff}
+#boot .boot-note{display:block;margin-top:12px;font-size:11px;letter-spacing:.08em;color:#8397a1}
+.touch-mode #boot .boot-brand{left:var(--safe-left);top:calc(var(--safe-top) + 14px);font-size:13px}
+.touch-mode #boot .boot-emblem{right:var(--safe-right);top:var(--safe-top)}
+@media(orientation:portrait){.touch-mode #boot .boot-panel{left:calc(var(--safe-left) + 8px);right:calc(var(--safe-right) + 8px);width:auto;bottom:calc(var(--safe-bottom) + 70px)}.touch-mode #boot-name{font-size:36px}}
+@media(orientation:landscape) and (max-height:550px){.touch-mode #boot .boot-panel{left:calc(var(--safe-left) + 8px);bottom:calc(var(--safe-bottom) + 14px);width:min(520px,60%)}.touch-mode #boot-name{font-size:30px}.touch-mode #boot .boot-panel>p{margin-bottom:16px}}
+@media(max-height:550px) and (min-width:801px){#boot .boot-panel{bottom:8%}}
+/* Map-loading story (loading-ui.mjs story()): the upcoming level's briefing word for word, or the district's tagline.
+   It keeps to its own box so the name, stage text and bar never move under it: landscape gives it a column on the right,
+   level with the panel's foot; portrait stacks it above the district name. Longer text scrolls inside, the cut edge faded. */
+#boot .boot-story{display:flex;flex-direction:column;min-height:0;animation:ui-rise .7s .1s var(--ui-ease) backwards}
+#boot .boot-story[hidden],#boot #boot-story-title[hidden]{display:none}
+#boot #boot-story-title{flex:none;display:block;margin:0 0 12px;font-family:var(--ui-cond);font-size:14px;letter-spacing:.2em;color:#d9c29c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#boot .boot-story-text{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+#boot .boot-story-text::-webkit-scrollbar{display:none}
+#boot .boot-story-text.is-clipped{-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(180deg,#000 calc(100% - 48px),transparent)}
+#boot .boot-story p{margin:0 0 .85em;font-family:inherit;font-size:15px;line-height:1.9;letter-spacing:.04em;color:#d6dedf;white-space:pre-line;text-shadow:0 1px 12px #060b10,0 0 2px #060b10b3}
+#boot .boot-story p:last-child{margin-bottom:0}
+/* A shade under the story's side of the art (bright neon sits right behind it in 旺角), like the one under the panel's side. */
+#boot.has-story::after{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none}
+@media(orientation:landscape){
+ #boot.has-story::after{background:linear-gradient(270deg,#060b10b3 0%,#060b1099 42%,transparent 66%)}
+ #boot.has-story .boot-panel{width:min(560px,48%)}
+ /* Right edge on the emblem's line (4.6% in from the right), measured from the panel: right = 100% (the panel) + 8% + 4.6% - 100vw. */
+ #boot .boot-story{position:absolute;right:calc(100% - 87.4vw);bottom:0;width:min(400px,34vw);max-height:calc(89vh - 108px)}
+}
+@media(orientation:landscape) and (max-height:550px){
+ /* Phones: clear of the music button bottom right (44 px tall, 12 px up). */
+ .touch-mode #boot.has-story .boot-panel{width:min(420px,50%)}
+ .touch-mode #boot .boot-story{right:calc(100% + var(--safe-left) + var(--safe-right) + 8px - 100vw);bottom:50px;width:min(380px,calc(100vw - 100% - var(--safe-left) - var(--safe-right) - 36px));max-height:calc(100vh - var(--safe-top) - var(--safe-bottom) - 128px);max-height:calc(100dvh - var(--safe-top) - var(--safe-bottom) - 128px)}
+ .touch-mode #boot #boot-story-title{margin-bottom:8px;font-size:12px}
+ .touch-mode #boot .boot-story p{font-size:13px;line-height:1.75}
+}
+@media(orientation:portrait){
+ /* The panel reaches up to just under the brand row; the story takes what the district name and bar leave. Flex does not
+    collapse margins, so the name's 6 px goes: the gap above 雪正在落下 stays the 6 px it is without a story. */
+ #boot.has-story::after{background:linear-gradient(180deg,#060b1040 0%,#060b108c 18%,#060b108c 56%,transparent 78%)}
+ #boot.has-story .boot-panel{top:100px;display:flex;flex-direction:column;justify-content:flex-end}
+ #boot.has-story .boot-panel>*{flex:none}
+ #boot.has-story .boot-panel>.boot-story{flex:0 1 auto;margin-bottom:24px}
+ #boot.has-story #boot-district{margin-bottom:0}
+ .touch-mode #boot.has-story .boot-panel{top:calc(var(--safe-top) + 62px)}
+ .touch-mode #boot .boot-story p{font-size:14px;line-height:1.8}
+}
+
+@media(prefers-reduced-motion:reduce){
+ #menu .title-block h1,#menu .title-block .intro,#menu .menu-actions>button,#menu .entry-note,#menu .location-card,#maps .maps-head,#maps .map-grid>li,#boot,#boot .boot-district,#boot .boot-story,#boot.has-art .boot-art{animation:none}
+ #menu .menu-actions>button,#menu .menu-actions>button::before,#menu .menu-actions>button>span,#maps .map-tile,#maps .map-tile .tile-art,#maps .map-tile::after,#boot .boot-art{transition:none}
+ #maps .map-tile::after{display:none}
+}
+
+/* In-game screens (ui-polish, second pass): briefing, help, pause, district map, result, HUD typography.
+   Same rules as the menu: serif only for the home brand, no decorative eyebrows/rules/bordered cards, one button system.
+   Layout invariants from MENU.md stay: phone briefing keeps its fixed bottom action bar and the 92 px music-button gap. */
+button:focus-visible{outline-color:var(--ui-amber)}
+.red-line{display:none}
+/* One button system: filled primary, dark outlined secondary, left-to-right fill on hover. Heights stay those of each screen. */
+.primary,.secondary{position:relative;isolation:isolate;overflow:hidden;font-size:13px;letter-spacing:.14em;font-weight:500;transition:color .22s var(--ui-ease),border-color .22s,transform .12s}
+.primary{font-weight:600;color:#10171c}
+.secondary{background:#0a1219c4;border:1px solid #eeeae142}
+.primary::before,.secondary::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--paper);transform:scaleX(0);transform-origin:left center;transition:transform .28s var(--ui-ease)}
+.primary::before{background:#fff}
+.primary>span,.secondary>span{display:flex;align-items:center;transition:transform .22s var(--ui-ease)}
+@media(hover:hover){.primary:not(:disabled):hover::before,.secondary:not(:disabled):hover::before{transform:scaleX(1)}.secondary:not(:disabled):hover{color:#10171c;border-color:var(--paper)}.primary:not(:disabled):hover>span,.secondary:not(:disabled):hover>span{transform:translateX(4px)}}
+.primary:disabled::before,.secondary:disabled::before{display:none}
+
+/* Headings: interface face, heavier weight. */
+.modal h2,.briefing-sheet h2,#result-title{font-family:inherit;font-weight:600;letter-spacing:.08em}
+.modal h2{font-size:40px;letter-spacing:.1em}.help-modal h2{font-size:34px}
+.modal .eyebrow,#result-kicker{font-family:var(--ui-cond);font-size:13px;letter-spacing:.24em;color:#c7d0d3}
+#pause .eyebrow,#help .eyebrow{display:none}
+@keyframes ui-sheet{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:none}}
+.modal-backdrop{animation:ui-fade .2s ease-out backwards}
+.modal-backdrop>.modal{animation:ui-sheet .35s var(--ui-ease) backwards}
+/* Fade only: a transform on the sheet would become the containing block of the phone's fixed action bar mid-animation. */
+#briefing .briefing-sheet{animation:ui-fade .35s ease-out backwards}
+
+/* Briefing: kicker (place · time · weather), title, objective as plain type rather than a bordered card. */
+#briefing>.briefing-sheet>.eyebrow{display:none}
+#briefing .briefing-meta{margin:0 0 14px;font-family:var(--ui-cond);font-size:14px;letter-spacing:.2em;color:#d9c29c}
+#briefing .briefing-order{border:0;background:none;padding:0;margin:26px 0 20px}
+#briefing .briefing-order>span{font-family:var(--ui-cond);font-size:13px;letter-spacing:.22em;color:#d9c29c;margin-bottom:6px}
+#briefing .briefing-order strong{font-size:21px;font-weight:600;line-height:1.5;letter-spacing:.06em}
+#briefing .briefing-controls b{font-family:var(--ui-cond);font-size:13px;letter-spacing:.08em;color:#e3e9e8}
+#briefing .briefing-actions .primary,#briefing .briefing-actions .secondary{height:54px}
+/* The focus frame sits on the buttons' own edge, so 開始行動 and its frame line up with the text above (Arthur 2026-09-28). */
+#briefing .briefing-actions button:focus-visible{outline-offset:-2px}
+#briefing .briefing-actions .primary{font-size:15px}
+.touch-mode #briefing .briefing-order{margin:12px 0 6px}.touch-mode #briefing .briefing-order strong{font-size:17px}
+.touch-mode #briefing .briefing-meta{margin:0 0 4px;font-size:12px}
+.touch-mode #briefing .briefing-actions .primary,.touch-mode #briefing .briefing-actions .secondary{height:auto}
+
+/* Help: key bindings read as keycaps; phones get an opaque sheet so the briefing behind never shows through. */
+.control-row{align-items:center;border-bottom-color:#ffffff14;padding:10px 0;font-size:12px}
+.control-row b{font-family:var(--ui-cond);font-size:13px;letter-spacing:.1em;color:var(--paper);background:#ffffff12;border:1px solid #ffffff2e;border-radius:3px;padding:3px 8px}
+.touch-guide{border:0;padding:0;background:none}.touch-guide strong{color:var(--paper)}
+.touch-mode #help{background:#081018}
+
+/* Pause and result share the modal type scale; result stats read like a scoreboard. */
+#pause-feedback,#pause-subscribe{border-top-color:#ffffff1a}
+.results-grid span{font-size:11px;letter-spacing:.14em}
+.results-grid strong,#result .results-grid strong{font-family:var(--ui-cond);font-size:40px;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin-top:6px}
+#result .results-grid{border-color:#ffffff1a}
+#result-title{font-size:clamp(32px,3.6vw,48px);line-height:1.2;margin:10px 0 12px}
+#result:has(#result-cta[data-outcome="lost"]){background:radial-gradient(ellipse at 50% -20%,#3a1512 0%,#0a1118 60%)}
+#result:has(#result-cta[data-outcome="lost"]) #result-kicker{color:#f08a7c}
+#result:has(#result-cta[data-outcome="won"]) #result-kicker{color:#d9c29c}
+#result .result-modal>*{animation:ui-sheet .4s var(--ui-ease) backwards}
+#result .result-modal>:nth-child(2){animation-delay:.05s}#result .result-modal>:nth-child(3){animation-delay:.1s}#result .result-modal>:nth-child(4){animation-delay:.15s}#result .result-modal>:nth-child(n+5){animation-delay:.2s}
+@media(max-width:600px){#result-title{font-size:32px}#result .results-grid strong{font-size:32px}}
+
+/* District map sheet. */
+.map-header h2{font-weight:600;letter-spacing:.1em}
+.map-header .overline{font-family:var(--ui-cond);font-size:12px;letter-spacing:.22em}
+.map-header button{background:#0a1219c4;border:1px solid #eeeae142;min-height:44px}
+.map-header button:hover{border-color:var(--paper)}
+
+/* HUD: same positions and sizes of touch controls; numbers and labels in the condensed face for quick reading. */
+.objective{border-left:0;padding-left:0}
+.touch-mode .objective{padding-left:0}
+.objective .overline,#chapter{font-family:var(--ui-cond);font-size:12px;letter-spacing:.18em;color:#d9c29c}
+.objective strong{font-weight:600}
+.health-value strong,.ammo-panel strong{font-family:var(--ui-cond);font-weight:600;letter-spacing:.02em}
+.ammo-total{font-family:var(--ui-cond)}
+.health-track{height:3px}
+.ammo-panel .overline,#reload-label,.health-panel>.overline{font-family:var(--ui-cond);font-size:11px;letter-spacing:.2em}
+.fire-hint{border-left:0}
+.top-actions button{background:#0a1219a8;border-color:#ffffff2a}
+#boss-hud strong{font-weight:600}
+.touch-mode .health-value strong{font-size:27px}.touch-mode .ammo-panel strong{font-size:30px}.touch-mode .ammo-total{font-size:14px}
+
+/* Error screen: same face as the rest. */
+#error h2{font-weight:600;letter-spacing:.08em}
+#error #error-reload{margin-top:14px;min-height:46px;padding:0 28px;justify-content:center;touch-action:manipulation}
+
+@media(prefers-reduced-motion:reduce){
+ .modal-backdrop,.modal-backdrop>.modal,#briefing .briefing-sheet,#result .result-modal>*{animation:none}
+ .primary,.secondary,.primary::before,.secondary::before,.primary>span,.secondary>span{transition:none}
+}
+
+/* ui-polish, third pass: livelier loading screen, result count-up (see src/ui-fx.mjs). The screen wipe was removed (Arthur 2026-09-26). */
+/* Loading: slow push-in on the art, a nearer and faster snow layer, the district name arriving one character at a time. */
+#boot.has-art .boot-art{animation:boot-push 30s linear forwards}
+@keyframes boot-push{from{transform:scale(1)}to{transform:scale(1.12)}}
+/* Depth from the existing third snow layer (larger, nearer, faster flakes) rather than extra full-screen layers:
+   each moving layer costs compositing time that the district's GPU preparation competes for. No filter:blur. */
+#boot .boot-snow i:nth-child(3){background-image:radial-gradient(circle at 20% 30%,#f1f7fa 0,#f1f7fa99 1.5px,transparent 4px),radial-gradient(circle at 75% 70%,#dbe8f0 0,#dbe8f080 1px,transparent 3.5px);background-size:420px 460px;opacity:.3;animation-duration:6.5s}
+#boot-name>span{display:inline-block;animation:boot-letter .5s var(--ui-ease) backwards;animation-delay:calc(.15s + var(--i,0) * 70ms)}
+@keyframes boot-letter{from{opacity:0;transform:translate3d(0,.35em,0);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+#boot-english{animation:boot-track 1.4s var(--ui-ease) backwards}
+@keyframes boot-track{from{letter-spacing:.7em;opacity:0}to{letter-spacing:.26em;opacity:1}}
+/* Result numbers: the real value stays in the DOM (invisible) while an aria-hidden copy counts up over it. */
+.results-grid>div{position:relative}
+.results-grid strong.counting{visibility:hidden}
+.results-grid .count-fx{position:absolute;white-space:nowrap;color:var(--paper);font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){#boot.has-art .boot-art,#boot-name>span,#boot-english{animation:none}}
+
+/* In-app browser hint (src/inapp-hint.mjs); plain on purpose until the home menu redesign styles it. */
+#inapp-hint{margin:14px 0 0;font-size:13px;color:var(--muted)}#inapp-hint[hidden]{display:none}#inapp-hint button{all:unset;cursor:pointer;padding:4px 8px;line-height:1;color:inherit}#inapp-hint [data-open]{padding:4px 0;text-decoration:underline;text-underline-offset:3px}#inapp-hint [data-close]{font-size:16px}
+/* Guide to the in-app browser's own menu: an arrow at its top-right menu button, the steps, copy link, stay. */
+#inapp-guide{position:fixed;inset:0;z-index:120;background:#0b1014fa;color:var(--paper)}#inapp-guide[hidden]{display:none}.inapp-arrow{position:absolute;top:max(6px,env(safe-area-inset-top));right:14px;width:56px;height:56px;animation:inapp-nudge 1.2s ease-in-out infinite}.inapp-arrow svg{width:100%;height:100%;fill:none;stroke:var(--paper);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}@keyframes inapp-nudge{50%{transform:translate(4px,-4px)}}@media (prefers-reduced-motion:reduce){.inapp-arrow{animation:none}}.inapp-sheet{position:absolute;top:calc(max(6px,env(safe-area-inset-top)) + 72px);left:16px;right:16px;display:flex;flex-direction:column;gap:12px}.inapp-sheet [data-steps]{margin:0;font-size:20px;line-height:1.5}.inapp-sheet button{height:49px;font-size:14px;letter-spacing:1px}.inapp-sheet [data-url]{height:40px;padding:0 10px;font:13px/1 monospace;color:var(--paper);background:#1a2227;border:1px solid var(--line)}.inapp-sheet [data-url][hidden]{display:none}.inapp-sheet [data-status]{margin:0;min-height:1.4em;font-size:13px;color:var(--muted)}
+
+/* In-app browser hint styled into the menu column (ui-polish): one row the width of the mode buttons, the way out in the accent
+   colour, close at the far end. Portrait phones only show it (src/inapp-hint.mjs); the column already clears the music button. */
+#menu #inapp-hint{display:flex;align-items:center;justify-content:space-between;gap:8px;width:min(340px,100%);margin:10px 0 0;padding:0 0 0 2px;font-size:13px;letter-spacing:.06em;color:var(--ui-amber);animation:ui-fade .5s .3s backwards}
+#menu #inapp-hint[hidden]{display:none}
+#menu #inapp-hint [data-open]{min-height:44px;padding:0;text-decoration:none;font-weight:600}
+#menu #inapp-hint [data-close]{min-width:44px;min-height:44px;text-align:center;color:#c7d0d3;font-size:18px}
+.touch-mode #menu #inapp-hint{width:100%}
+@media(prefers-reduced-motion:reduce){#menu #inapp-hint{animation:none}}
+/* Hand grenades (src/grenade-scene.mjs; off by default in v1.5.0, ?grenade=1 turns them on): the count above the ammo on a
+   desktop (first in the panel, so #reload-label stays its :last-child); on a phone a button in the gap between 換彈 and 瞄準
+   in the right thumb's ring round 開火 (grey while empty; Arthur 2026-09-28, as CoD Mobile and PUBG Mobile keep throwables in
+   the right cluster), with a cancel above it while cooking; the pick-up and aim hint under the crosshair (red in
+   the last second of the fuse), the blast's flash. */
+.ammo-panel .grenade-hud{display:block;margin-bottom:8px;font-size:10px;letter-spacing:1.5px;color:#e6d6b6}.grenade-hud b{font-weight:600;font-variant-numeric:tabular-nums;color:#ffd48a}.grenade-hud.empty{opacity:.45}.grenade-hud.empty b{color:inherit}.ammo-panel .grenade-hud[hidden]{display:none}
+#grenade-prompt{position:absolute;left:50%;top:66%;transform:translateX(-50%);font-size:12px;letter-spacing:2px;color:#ffd99a;white-space:nowrap}
+.touch-mode #grenade-prompt{font-size:10px;letter-spacing:.5px;top:67%}
+#touch-grenade{right:59px;bottom:162px;border-color:#e2bf82;display:flex;align-items:center;justify-content:center}
+#touch-grenade svg{width:25px;height:25px;fill:none;stroke:#f1dcb4;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+#touch-grenade span{position:absolute;right:-4px;top:-4px;min-width:19px;height:19px;padding:0 4px;border-radius:10px;background:#c9974a;color:#161b20;font-size:11px;font-weight:700;line-height:19px;text-align:center}
+#touch-grenade.empty{opacity:.42;border-color:#ccdae355}#touch-grenade.empty svg{stroke:#b9c4c9}#touch-grenade.empty span{background:#56626a;color:#c7d0d4}#touch-grenade.held{background:#825f37bb}
+#touch-grenade-cancel{right:117px;bottom:164px;width:48px;height:48px;font-size:11px;border-color:#e59a8c;background:#3a1c1ccc;color:#ffd9d0}
+#grenade-prompt.urgent{color:#ff8a70}
+/* 跳躍, 蹲下, 換彈 and 瞄準 never move (Arthur 2026-09-28): with grenades on, the grenade sits straight above 換彈 and its
+   cancel to the grenade's left while cooking. */
+@media(orientation:portrait){.touch-mode #grenade-prompt{top:57%}}
+/* Short landscape phones: the grenade shrinks to 46 px (still centred above 換彈) to stay clear of the minimap. */
+@media(orientation:landscape) and (max-height:420px){#touch-grenade{width:46px;height:46px;right:62px;bottom:160px}#touch-grenade-cancel{bottom:161px}}
+.grenade-flash{position:fixed;inset:0;pointer-events:none;background:#ffe2b0;mix-blend-mode:screen;opacity:0;z-index:2}
+
+/* Pause sheet: a close button at the top right that stays in view while the sheet scrolls, so players close it here
+   instead of reaching for the in-app browser's back arrow (Arthur 2026-09-27). It resumes the run, like 繼續行動. */
+#pause .modal{position:relative}
+.modal-close{position:sticky;top:0;float:right;z-index:3;width:44px;height:44px;margin:-6px -6px 0 12px;padding:0;display:grid;place-items:center;border:1px solid var(--line);background:#0c1115e6;color:var(--paper);font-size:20px;line-height:1;cursor:pointer}
+.modal-close:hover,.modal-close:focus-visible{border-color:#ffffff80}
+/* 蹲下 (src/crouch-controls.mjs; on from v1.5.0, ?crouch=0 turns it off): the phone button sits on the ring round 開火
+   between 換彈 and 跳躍 (Arthur 2026-09-28), held either way. Lit while down, in the 瞄準 toggle's colours. */
+.touch-actions #touch-crouch{right:105px;bottom:68px}
+.touch-actions #touch-crouch[aria-pressed=true]{background:#976c3acc;border-color:#f2d3a2}
+/* The minimap opens the district map (Arthur 2026-09-28, in place of the 地圖 button): a pointer over it on a computer; on a
+   phone a frame and a small expand mark in its lower right corner (taps pass through the mark to the minimap). */
+#radar{pointer-events:auto;cursor:pointer}#radar:hover{opacity:1}
+.radar-open{display:none}
+.touch-mode #radar{border:1px solid #ccdae366;border-radius:4px}
+.touch-mode .radar-open{display:block;position:absolute;right:calc(var(--safe-right) + 2px);top:calc(var(--safe-top) + 104px);width:18px;height:18px;padding:2px;border-radius:3px;background:#0c1b25cc;pointer-events:none}
+.touch-mode .radar-open svg{display:block;width:14px;height:14px;fill:none;stroke:#e6eef0;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media(orientation:portrait){.touch-mode .radar-open{top:calc(var(--safe-top) + 163px)}}
+/* A room's loading screen (src/hosted-entry.mjs): an invite opens on it (正在加入房間 …, the bar sweeping while the room
+   answers) with the menu underneath hidden and untouchable; a small 取消 under the bar; a failed join says why and
+   offers 返回主選單 (Arthur 2026-09-28). */
+body.invite-joining #menu,body.invite-joining .mp-screen{visibility:hidden}
+#boot .boot-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:12px}
+#boot .boot-cancel{min-height:44px;padding:8px 4px;border:0;background:none;color:#b3c2c9;font:inherit;font-size:13px;letter-spacing:.1em;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+#boot .boot-panel>p.boot-error{margin:4px 0 8px;font-family:inherit;font-size:17px;line-height:1.6;letter-spacing:.04em;color:#ffcbbd}
+#boot #boot-home{min-height:46px;padding:0 24px}
+#boot.boot-failed .boot-status,#boot.boot-failed .boot-track,#boot.boot-failed .boot-note,#boot.boot-failed .boot-panel>p:not(.boot-error){display:none}
+#boot.boot-waiting #boot-percent{visibility:hidden}
+#boot.boot-waiting .boot-track{overflow:hidden}
+#boot.boot-waiting .boot-track i{width:28%!important;animation:boot-wait 1.1s ease-in-out infinite alternate}
+@keyframes boot-wait{from{transform:translateX(-20%)}to{transform:translateX(280%)}}
+@media(prefers-reduced-motion:reduce){#boot.boot-waiting .boot-track i{animation:none}}
+/* A room's play on a phone (body.talk-on, src/talk.mjs), Arthur 2026-09-28: the boss bar out of the objective column and
+   clear of the top buttons (upright under them at the right; sideways in the top row, right of the middle), and the
+   down / watching banner clear of 標記 and 對話 (upright under the minimap row, sideways under the top row); 標記 is
+   hidden while watching (對話 stays). Solo play keeps its layout. */
+body.touch-mode.talk-on #boss-hud{top:calc(var(--safe-top) + 6px);left:calc(50% + 10px);transform:none;width:min(190px,21vw);text-align:left}
+body.touch-mode.talk-on #boss-hud strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.aid-watching .talk-ping{display:none}
+body.touch-mode .aid-layer .aid-banner{top:27%}
+body.touch-mode.aid-down #notification,body.touch-mode.aid-watching #notification{top:42%}
+/* The column's entries are as wide as their words, and the squad's names are cut short upright, so the column stays left
+   of 標記 and 對話 beside the minimap. */
+.hud-top{align-items:flex-start}.objective{align-items:flex-start}
+@media(orientation:portrait){body.touch-mode.talk-on #boss-hud{top:calc(var(--safe-top) + 60px);left:auto;right:var(--safe-right);width:min(142px,38vw);text-align:right}
+body.touch-mode #squad span:first-child{max-width:7em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}body.touch-mode #squad i{width:40px}
+body.touch-mode .aid-layer .aid-banner{top:calc(var(--safe-top,0px) + 222px)}}
+/* Weapon switching (src/weapon-controls.mjs; on from v1.5.0, ?weapons=0 turns it off): on a phone, the rifle icon beside the ammo count switches
+   to the next rifle. Desktop players switch with 1, 2, the wheel and Q, so the button stays hidden there. */
+#weapon-swap{display:none}
+.touch-mode #weapon-swap:not([hidden]){display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:32px;margin-right:8px;padding:2px 4px;border:1px solid #c9dce35c;border-radius:8px;background:#0c1b2599;color:#eeeae1;font-size:9px;letter-spacing:.5px;vertical-align:bottom;position:relative;top:8px;pointer-events:auto;touch-action:none;min-width:0;min-height:0;box-shadow:none}
+.touch-mode #weapon-swap svg{display:block;width:34px;height:12px;margin:0 auto 1px}
+.touch-mode #weapon-swap.switching{opacity:.55}
+/* The rifle switch never moves (UI audit S5, 2026-09-29): what follows it on the ammo line keeps one width whatever it says
+   (the rounds, the magazine, and 7.62 MM, 5.56 MM, 正在換彈 or 點擊換彈), so neither a reload nor a switch nor the last
+   round shifts the button. Story, co-op and versus share this line (src/pvp-client.mjs). */
+.touch-mode #ammo{display:inline-block;min-width:2ch;text-align:right;font-variant-numeric:tabular-nums}
+.touch-mode .ammo-total{display:inline-block;min-width:2.4em;text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}
+.touch-mode #reload-label{width:4.6em;text-align:left;white-space:nowrap;overflow:hidden}
+/* The pause sheet and the district map cover play (game.js body.panel-open; UI audit S6, S9): the play HUD, the room's
+   標記/對話 with its messages and marks, and the down banner go under them, hidden rather than dimmed, so nothing behind a
+   panel shows through its words or looks pressable; on a phone, which draws the panels without a computer's blur, the
+   backdrop is also nearly opaque. */
+body.panel-open #hud,body.panel-open .talk-buttons,body.panel-open .talk-feed,body.panel-open .talk-marks,body.panel-open .aid-layer{visibility:hidden}
+.touch-mode #pause.modal-backdrop,.touch-mode #district-map.map-backdrop{background:#071017f5}
+/* A computer's key line under play reads at a glance (UI audit M12): larger and brighter; the minimap opens with TAB (the
+   mouse is captured in play, so the minimap is not shown as a link). */
+.bottom-hint{font-size:11px;letter-spacing:1px;color:#d3dde1;text-shadow:0 1px 4px #000}.bottom-hint span{color:#ffffff66}.bottom-hint span[class]{color:inherit}/* a group (蹲下, 換槍, 快捷句) reads as the rest; only its dot is dim */
+body:not(.touch-mode) #radar{cursor:default}
+/* The street under the phone's minimap stays readable over a bright sign (UI audit M13). */
+/* The backdrop is painted around the words (box-shadow), not added to their box: the grenade button beside them keeps its gap. */
+.touch-mode #compass{border-radius:2px;background:#0a141bb3;box-shadow:0 0 0 4px #0a141bb3;text-shadow:0 1px 3px #000}
+/* Screen changes (UI transitions audit, 2026-09-29) --------------------------------------------------------------------
+   T1, A1: one 180 ms cross-fade for every same-page change (src/screen-fade.mjs): the new screen, whole from its first
+   frame, fades in over the old one, which stays drawn beneath it until then; the screens' own content entrances are off,
+   so no change passes through an empty or dark frame. */
+@keyframes screen-in{from{opacity:0}to{opacity:1}}
+.screen-enter{animation:screen-in .18s ease-out both!important}
+.screen-leaving{z-index:3!important;pointer-events:none!important}
+#maps .maps-head,#maps .map-grid>li,#briefing .briefing-sheet,.modal-backdrop,.modal-backdrop>.modal,#result .result-modal>*{animation:none}
+/* m1: the main menu's entrance plays only when the site opens (html.menu-intro, src/hosted-entry.mjs), not on every return;
+   its backdrop video goes on from where it stopped (src/menu-backdrop.mjs). The buttons' own style is not touched here. */
+html:not(.menu-intro) #menu .title-block h1,html:not(.menu-intro) #menu .title-block .intro,html:not(.menu-intro) #menu .menu-actions>button,html:not(.menu-intro) #menu .entry-note,html:not(.menu-intro) #menu .location-card{animation:none}
+/* T2, T7, A1: the loading screen is opaque from its first frame (no fade-in), so a page opened to load a district or a
+   room shows it at once over the menu underneath, and a room's screen covers the lobby it is drawn over; it fades out
+   over the briefing once that is drawn (game.js, T3). T10: a district's loading screen keeps the panel where the story
+   will need it from the start, so the story's arrival does not move it. */
+#boot{animation:none}
+#boot.boot-leaving{opacity:0;transition:opacity .2s ease-out;pointer-events:none}
+@media(orientation:portrait){
+ #boot.has-district .boot-panel{top:100px;display:flex;flex-direction:column;justify-content:flex-end}
+ #boot.has-district .boot-panel>*{flex:none}
+ #boot.has-district #boot-district{margin-bottom:0}
+ .touch-mode #boot.has-district .boot-panel{top:calc(var(--safe-top) + 62px)}
+}
+/* T4, A2: no browser tap highlight (it stayed painted where a button was hidden); pressed buttons, map tiles and room rows
+   show their own press instead. The phone's play controls keep their held states, and the main menu's plates (menu-style: the mode buttons, the music
+   button) their own. */
+*{-webkit-tap-highlight-color:transparent}
+button:not(:disabled):active:not(#menu .menu-actions>button):not(.menu-music-toggle):not(#touch-controls button):not(.talk-buttons button),.mp-room:active{transform:scale(.97);filter:brightness(1.15)}
+.map-tile:not(:disabled):active{transform:scale(.985);filter:brightness(1.15)}
+/* m7, A12: 離開房間 asks once more as a plain red button, not a changed line of small text. */
+.result-actions>.result-leave.confirm{color:#ffe1da;background:#6e2a24;border:1px solid #e59a8c;padding:8px 18px;text-decoration:none}
+/* T2/T5: the district's name and backdrop on the loading screen appear whole at once, so the screen the old page shows as
+   it leaves and the one the new page opens on are the same picture, with no letters or backdrop starting over between. */
+#boot .boot-district,#boot-name>span,#boot-english{animation:none}
+#boot .boot-art{transition:opacity .2s ease-out}
+
+.mp-screen{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 0%,#172731,#0c1319 65%);color:#eeeae1;font-family:"Helvetica Neue","PingFang TC",sans-serif;overflow:auto;--mp-muted:#a6b0b7;--mp-bottom:env(safe-area-inset-bottom,0px)}
+.mp-screen *{box-sizing:border-box}.mp-panel{width:min(100%,560px);height:100%;min-height:0;margin:auto;padding:12px 20px calc(16px + var(--mp-bottom));display:flex;flex-direction:column;gap:16px}.mp-header{display:flex;justify-content:space-between;align-items:center;min-height:44px;flex-shrink:0}.mp-screen button{font-family:inherit;cursor:pointer;color:inherit;border-radius:8px;min-height:44px;font-size:15px;background:none;border:1px solid #ffffff38;letter-spacing:0;white-space:normal}.mp-header>button{border:0;padding:0 8px 0 0;min-width:60px;text-align:left}.mp-screen h1{font:600 24px/1.2 "Helvetica Neue","PingFang TC",sans-serif;letter-spacing:0;margin:0}.mp-screen h1:focus{outline:none}.mp-body{display:flex;flex-direction:column;gap:16px;min-height:0;flex:1;overflow-y:auto}.mp-screen .mp-primary{background:#eeeae1;color:#10171c;border:0;font-size:17px;font-weight:600;min-height:52px;width:100%}.mp-secondary{padding:12px}.mp-footer{flex-shrink:0;display:flex;flex-direction:column;gap:10px}.mp-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mp-tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid #ffffff25;border-radius:10px;padding:3px;gap:3px}.mp-tabs .mp-tab{border:0;color:var(--mp-muted)}.mp-tabs .mp-tab-active{background:#ffffff14;color:#eeeae1;font-weight:600}.mp-tab small{font-size:11px;margin-left:8px}.mp-tab:disabled{cursor:default;opacity:.65}.mp-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.mp-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 15%,#050a0fdd 100%)}
+/* 建立房間 (co-op): the three chapters as tiles, sharing the height left on the page. */
+.mp-chapters{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.mp-screen .mp-chapter{position:relative;flex:1 1 0;min-height:96px;max-height:190px;padding:0;overflow:hidden;border-radius:10px;border:1px solid #ffffff38;background:#233039;text-align:left}
+.mp-chapter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mp-chapter:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,#050a0fe0 100%)}
+.mp-chapter strong,.mp-chapter span{position:absolute;left:16px;z-index:1}
+.mp-chapter strong{bottom:32px;font-size:20px;font-weight:600;letter-spacing:1px}
+.mp-chapter span{bottom:12px;font-size:12px;color:#d8d4cc}
+.mp-arena{margin:0;font-size:14px;color:#d8d4cc}
+.mp-note,.mp-status{font-size:12px;line-height:1.5;color:var(--mp-muted);text-align:center;margin:0}.mp-availability{font-size:13px;color:var(--mp-muted);margin:0}.mp-form{display:flex;flex-direction:column;gap:24px;padding-top:8px}.mp-field{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--mp-muted)}.mp-field select,.mp-field input{width:100%;min-height:52px;background:#17252b;color:#eeeae1;border:1px solid #6c7b80;border-radius:8px;padding:12px;font:inherit;font-size:16px}.mp-code-input{text-transform:uppercase;letter-spacing:3px}.mp-room-tools{display:flex;align-items:center;gap:8px}.mp-room-tools .mp-code{padding:0 12px;font-size:14px;letter-spacing:1px}.mp-icon{width:44px;padding:10px}.mp-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.mp-banner{height:190px;position:relative;overflow:hidden;border-radius:10px;flex-shrink:0;background:#1c2a30}.mp-caption{position:absolute;bottom:14px;left:16px;right:16px;z-index:1}.mp-caption p{font-size:13px;line-height:1.5;margin:0;color:#e0e2df}.mp-screen .mp-caption h2{font:600 22px/1.3 "Helvetica Neue","PingFang TC",sans-serif;letter-spacing:0;margin:5px 0}.mp-squad{min-height:0}.mp-team-title{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:600;line-height:1.4;margin:0 0 10px}.mp-team-title span{font-size:14px;font-weight:400;color:var(--mp-muted)}.mp-seats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0;margin:0}.mp-seat{min-width:0;min-height:70px;background:#ffffff0a;border-radius:8px;padding:12px;display:flex;flex-direction:column;justify-content:center;gap:6px}.mp-player{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:14px}.mp-player strong{overflow-wrap:anywhere;font-weight:500}.mp-tag{font-size:10px;white-space:nowrap;color:#e5aaa2;background:#bb423b28;padding:2px 5px;border-radius:3px}.mp-ready,.mp-not-ready{font-size:12px}.mp-ready{color:#7cc58a}.mp-not-ready{color:var(--mp-muted)}.mp-empty{padding:0;background:none;border:1px dashed #ffffff38}.mp-empty button{border:0;width:100%;height:100%;color:var(--mp-muted)}.mp-rules{margin-top:10px;color:var(--mp-muted);font-size:13px}.mp-rules summary{min-height:44px;cursor:pointer;padding:12px 0}.mp-rules p{font-size:12px;line-height:1.7;margin:0 0 12px}.mp-screen button:focus-visible,.mp-screen input:focus-visible,.mp-screen select:focus-visible,.mp-screen summary:focus-visible{outline:2px solid #e1b0a0;outline-offset:2px}.mp-screen .mp-sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.mp-screen button:disabled:not(.mp-tab){opacity:.5;cursor:default}
+body.mp-review .mp-screen{--mp-bottom:22px}
+/* Public room list (Arthur 2026-09-27): under 快速加入; the list scrolls, quick join and 建立新房間 stay in view. */
+.mp-screen.mp-listed .mp-body{flex:none}.mp-rooms{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.mp-rooms-head{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:40px}.mp-rooms-head .mp-secondary{min-height:40px;padding:0 14px;font-size:14px;white-space:nowrap}
+.mp-room-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;min-height:0;overflow-y:auto;flex:1}
+.mp-room{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;min-height:56px;padding:6px 6px 6px 12px;border-radius:8px;background:#ffffff0a}
+.mp-room-text{display:flex;flex-direction:column;gap:3px;min-width:0}.mp-room-text strong{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mp-room-text small{font-size:12px;color:var(--mp-muted)}
+.mp-room-tag{font-weight:600;color:#e7c98f}.mp-room-count{font-size:13px;color:#d8d4cc;font-variant-numeric:tabular-nums}.mp-screen .mp-room button{min-height:44px;padding:0 16px}
+@media(max-height:740px) and (orientation:portrait){.mp-panel{gap:12px}.mp-banner{height:154px}.mp-seat{min-height:62px;padding:10px}.mp-empty{padding:0}.mp-body{gap:12px}}
+@media(orientation:landscape) and (max-height:520px){.mp-screen[data-view=entry] .mp-rooms{grid-column:2;grid-row:2;gap:8px}.mp-screen.mp-listed[data-view=entry] .mp-footer{grid-row:3}.mp-room{min-height:50px}.mp-panel{width:min(100%,1000px);padding:8px max(20px,env(safe-area-inset-left)) calc(8px + var(--mp-bottom));display:grid;grid-template-columns:1fr 1fr;grid-template-rows:44px minmax(0,1fr) auto;gap:8px 24px}.mp-header{grid-column:1/-1}.mp-panel>h1:not(.mp-sr-only){grid-column:1;grid-row:2;align-self:start}.mp-screen[data-view=entry] .mp-body{grid-column:1;grid-row:2/4;padding-top:40px;gap:10px}.mp-screen[data-view=entry] .mp-footer{grid-column:2;grid-row:2/4;align-self:end}.mp-chapter strong{bottom:28px;font-size:17px}.mp-chapter span{bottom:9px}.mp-screen[data-view=lobby] .mp-body{display:contents}.mp-banner{grid-column:1;grid-row:2/4;height:100%;min-height:0}.mp-squad{grid-column:2;grid-row:2;overflow:auto}.mp-screen[data-view=lobby] .mp-footer{grid-column:2;grid-row:3;gap:5px}.mp-team-title{margin-bottom:6px}.mp-seats{gap:6px}.mp-seat{min-height:51px;padding:7px 10px;gap:3px}.mp-empty{padding:0}.mp-rules{margin-top:0}.mp-rules summary{min-height:44px;padding:12px 0}.mp-caption{bottom:14px}.mp-screen[data-view=create] .mp-body,.mp-screen[data-view=join] .mp-body,.mp-screen[data-view=searching] .mp-body{grid-column:2;grid-row:2/4}.mp-screen[data-view=searching] .mp-footer{grid-column:1;grid-row:3}.mp-form{gap:12px}.mp-field{gap:5px}.mp-field select,.mp-field input{min-height:44px}}
+/* Landscape phones (UI audit S8, 2026-09-29): the room list takes the whole right column; 建立房間 and 輸入房號 sit under the
+   tabs on the left, where there was room to spare. Rows keep their full height and the list scrolls instead (they shrank in
+   the column and showed half a row). */
+.mp-room{flex-shrink:0}
+@media(orientation:landscape) and (max-height:520px){.mp-screen[data-view=entry] .mp-rooms{grid-row:2/4}.mp-screen.mp-listed[data-view=entry] .mp-body{grid-row:2}.mp-screen.mp-listed[data-view=entry] .mp-footer{grid-column:1;grid-row:3}}
+/* 測試版 beside the lobby's 房號 and 分享 is a plain note, not a framed tag like those buttons (UI audit M4). */
+.mp-room-tools .status-tag{border:0;background:none;padding:0 4px 0 0;margin:0;color:var(--mp-muted);font-size:12px;letter-spacing:.05em}
+
+body.multiplayer-open .menu-music-toggle{display:none}
+.mp-share{color:#ede9de;background:#0d1a22;border:1px solid #60717b;border-radius:12px;padding:20px;max-width:280px;max-height:85dvh;overflow:auto;text-align:center}
+.mp-share::backdrop{background:#0009}.mp-share h2{font:600 24px/1.2 system-ui,sans-serif;margin:0}.mp-share canvas{display:block;width:176px;height:176px;margin:12px auto}.mp-share button{min-height:44px;padding:8px 16px;margin:4px;color:inherit;background:#263640;border:1px solid #60717b;border-radius:6px}
+
+.pvp-hud{position:fixed;inset:0;z-index:30;color:#fff;font:14px "Helvetica Neue",Arial,"PingFang TC",sans-serif;pointer-events:none}.pvp-hud[hidden]{display:none}.pvp-hud header button,.pvp-board button{pointer-events:auto;min-width:44px;min-height:44px;color:#fff;background:#13232bcc;border:1px solid #ffffff50;border-radius:8px;padding:8px 12px;font:inherit}.pvp-hud header{display:flex;gap:8px;align-items:center;padding:12px}.pvp-hud header>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}.pvp-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px}.pvp-message{position:absolute;top:22%;width:100%;text-align:center;text-shadow:0 1px 4px #000}.pvp-board{pointer-events:auto;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:12px;max-height:calc(100dvh - 24px);width:min(88vw,420px);padding:20px;border-radius:12px;background:#10212aee}.pvp-board-body{min-height:0;overflow:auto}.pvp-board h1{font:600 24px "Helvetica Neue","PingFang TC",sans-serif;margin:0 0 8px}.pvp-board li{padding:5px}.pvp-board[hidden]{display:none}
+/* Versus plays with the story's own touch controls and bottom bar (src/pvp-client.mjs, UI audit S3, 2026-09-29): the story HUD's type size and
+   text shadow; no sprint in versus, so no 推盡衝刺 under the stick; the touch controls hidden while a board is up to be used
+   (分數, Esc, the result: they do nothing then, UI audit M9); 輔助瞄準 under the board's own 設定 heading. The board keeps
+   its buttons in view and scrolls its standings instead on a short screen (UI audit S7). */
+.pvp-hud>.hud-bottom,.pvp-hud>#touch-controls{font-size:16px;text-shadow:0 2px 10px #000}body.touch-mode .pvp-hud .fire-hint{display:none}.pvp-hud #touch-stick small{display:none}.pvp-hud.pvp-board-shown>#touch-controls{visibility:hidden}
+.pvp-settings{margin:0;border-top:1px solid #ffffff26;padding-top:10px}.pvp-settings[hidden]{display:none}.pvp-settings h2{flex-basis:100%;margin:0;font-size:13px;font-weight:600;color:#a6b0b7}
+/* Result board: the room's countdown to the next round, then 離開 and 邀請 (Arthur 2026-09-27). */
+.pvp-board .pvp-next{margin:0 0 10px;color:#ffe7a8;font-size:15px}.pvp-next:empty{display:none}.pvp-board-actions{display:flex;flex-wrap:wrap;gap:8px}.pvp-board-actions button[hidden]{display:none}
+/* Held with Tab it only shows (no buttons, no chat, clicks pass through); your own row stands out. */
+.pvp-board.pvp-board-peek{pointer-events:none;background:#10212ad9}.pvp-board-peek .pvp-board-actions,.pvp-board-peek .pvp-next{display:none}.pvp-board li.pvp-own{font-weight:600;color:#ffe7a8}
+/* Kill feed (Arthur 2026-09-27): top right under the buttons; on phones clear of the 對話 button and the aim cluster
+   (portrait below it, landscape to its left). */
+.pvp-feed{position:absolute;top:64px;right:12px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;align-items:flex-end;gap:4px;max-width:min(42vw,340px);font:13px "Helvetica Neue","PingFang TC",sans-serif}
+.pvp-feed li{display:flex;align-items:center;gap:6px;max-width:100%;padding:3px 10px;border-radius:4px;border-right:3px solid #d5a45f;background:#0c171dcc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 2px #000}
+.pvp-feed .pvp-feed-own{border-right-color:#eeeae1;background:#22333ce6}.pvp-feed svg{flex:none;width:14px;height:14px;fill:none;stroke:#ff9b7a;stroke-width:1.6;color:#ff9b7a}
+.pvp-mobile .pvp-feed{top:132px;font-size:12px}
+@media(orientation:landscape) and (max-height:520px){.pvp-mobile .pvp-feed{top:64px;right:72px}}
+
+/* Pings, quick-chat wheel and feed (src/talk.mjs) */
+.talk-layer{position:fixed;inset:0;z-index:25;pointer-events:none;color:#eeeae1;font-family:"Helvetica Neue","PingFang TC",sans-serif}.talk-layer[hidden]{display:none}
+.talk-mark{position:absolute;left:0;top:0;width:140px;margin:-9px 0 0 -70px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;text-shadow:0 1px 3px #000}
+.talk-mark i{width:13px;height:13px;border:2px solid #ffd45c;background:#ffd45c40;transform:rotate(45deg)}.talk-enemy i{border-color:#ff7a66;background:#ff7a6640}
+.talk-mark span{font-size:12px;font-weight:600;color:#ffe7a8;white-space:nowrap}.talk-enemy span{color:#ffc3b9}.talk-mark small{font-size:10px;color:#7fd7ff}.talk-edge span,.talk-edge small{opacity:.75}
+.talk-feed{position:absolute;left:35px;top:var(--talk-feed-top,200px);margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:14px;max-width:44vw}
+.talk-feed li{width:max-content;max-width:100%;padding:4px 10px;border-left:3px solid #7fd7ff;border-radius:4px;background:#0c171dcc}.talk-feed b{color:#7fd7ff;font-weight:600}.talk-feed .talk-own{border-left-color:#eeeae1}.talk-feed .talk-own b{color:#eeeae1}
+/* The wheel sits above every screen (play, lobby, result board); only a clicked-open wheel takes the pointer. */
+.talk-wheel{position:fixed;left:50%;top:50%;width:0;height:0;z-index:45;pointer-events:none;color:#eeeae1;font-family:"Helvetica Neue","PingFang TC",sans-serif}.talk-wheel[hidden]{display:none}.talk-wheel.talk-click .talk-slot{pointer-events:auto;cursor:pointer}
+.talk-slot{position:absolute;left:0;top:0;color:inherit;font-family:inherit;min-height:0;transform:translate(calc(var(--x)*min(150px,33vw) - 50%),calc(var(--y)*min(125px,28vh) - 50%));display:flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid #ffffff40;border-radius:8px;background:#0c171ddd;font-size:15px;white-space:nowrap}
+.talk-slot kbd{font:11px ui-monospace,monospace;color:#a6b0b7}.talk-slot kbd:empty{display:none}.talk-slot.talk-active{background:#eeeae1;border-color:#eeeae1;color:#10171c}.talk-slot.talk-active kbd{color:#10171c}
+/* Well below the crosshair, clear of a ping's label and name there, above the lower lines. */
+.talk-centre{position:absolute;left:0;top:0;transform:translate(-50%,58px);font-size:12px;color:#c4cecf;white-space:nowrap;text-shadow:0 1px 3px #000}
+/* Phones, tapped open (src/talk.mjs place()): the lines as a grid beside 對話, four across, each 44 px tall to tap; 對話
+   lit while they are open. */
+.talk-wheel.talk-list{left:auto;right:var(--list-right,max(14px,env(safe-area-inset-right)));top:var(--list-top,64px);width:auto;height:auto;display:grid;grid-template-columns:repeat(4,auto);gap:4px;padding:4px;border-radius:10px;background:#0c171dcc;box-shadow:0 2px 12px #0006;pointer-events:auto}
+.talk-wheel.talk-list[hidden]{display:none}
+.talk-list .talk-slot{position:static;transform:none;justify-content:center;min-height:44px;padding:0 10px;font-size:14px}
+.talk-list .talk-centre{display:none}
+.talk-buttons .talk-open{background:#976c3acc;border-color:#f2d3a2}
+/* Phones: a row just left of the minimap, clear of the fire cluster and the top-right buttons (checked at 844×390 and 390×844). */
+.talk-buttons{position:absolute;right:calc(env(safe-area-inset-right,0px) + var(--talk-buttons-right,90px));top:var(--talk-buttons-top,64px);display:flex;gap:10px;pointer-events:auto}
+.talk-buttons button{width:48px;height:48px;padding:0;border-radius:50%;border:1px solid #ccdae377;background:#10212caa;color:#eeeae1;font:12px "Helvetica Neue","PingFang TC",sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}
+body.touch-mode .talk-feed{left:14px;font-size:12px}body.touch-mode .talk-layer{--talk-feed-top:108px}
+/* Phones upright: a long objective (Mong Kok's) wraps the top-right buttons onto a second row, so the talk buttons sit
+   one row lower, beside the minimap and clear of 地圖 and 音效. */
+@media(orientation:portrait){body.touch-mode .talk-layer{--talk-buttons-top:calc(var(--safe-top,0px) + 124px)}}
+.talk-hint{display:none}body.talk-on .talk-hint{display:inline}
+body:has(.pvp-hud:not([hidden])) .talk-layer{--talk-buttons-top:76px;--talk-buttons-right:12px;--talk-feed-top:84px}
+/* Typing during play (desktop, Enter) */
+.talk-type{position:absolute;left:35px;top:calc(var(--talk-feed-top,200px) - 44px);display:flex;align-items:center;gap:8px;pointer-events:auto}.talk-type[hidden]{display:none}
+.talk-type input{width:min(360px,60vw);padding:7px 10px;border:1px solid #7fd7ff;border-radius:6px;background:#0c171dee;color:#eeeae1;font:14px "Helvetica Neue","PingFang TC",sans-serif}.talk-type small{font-size:11px;color:#c4cecf;text-shadow:0 1px 3px #000}
+/* Chat panel: lobby, co-op result and versus result board */
+.talk-panel{display:flex;flex-direction:column;gap:8px;min-width:0;padding:10px 12px;border-radius:8px;background:#ffffff0a;color:#eeeae1;font:13px "Helvetica Neue","PingFang TC",sans-serif;text-align:left}
+.talk-panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.talk-panel-head b{font-size:14px;font-weight:600}.talk-panel-head label{display:flex;align-items:center;gap:6px;color:#a6b0b7;font-size:12px;min-height:32px}
+.talk-log{margin:0;padding:0;list-style:none;max-height:96px;min-height:24px;overflow-y:auto;display:flex;flex-direction:column;gap:3px}.talk-log li{overflow-wrap:anywhere}.talk-log b{color:#7fd7ff;font-weight:600}.talk-log .talk-own b{color:#eeeae1}
+.talk-panel-note{margin:0;font-size:12px;color:#e5aaa2;min-height:0}.talk-panel-note:empty{display:none}
+.talk-send{display:flex;gap:6px}.talk-send input{flex:1;min-width:0;min-height:40px;padding:8px 10px;border:1px solid #6c7b80;border-radius:8px;background:#17252b;color:#eeeae1;font:16px "Helvetica Neue","PingFang TC",sans-serif}
+.talk-panel button{min-height:40px;padding:0 12px;border:1px solid #ffffff38;border-radius:8px;background:none;color:inherit;font:inherit;cursor:pointer;white-space:nowrap}.talk-panel button:disabled{opacity:.5;cursor:default}
+.talk-people{display:flex;flex-wrap:wrap;gap:6px}.talk-people:empty{display:none}.talk-people .talk-mute{min-height:32px;font-size:12px;color:#a6b0b7}.talk-people .talk-mute[aria-pressed=true]{color:#e5aaa2;border-color:#e5aaa280}
+.result-modal .talk-panel{margin-top:14px}.pvp-board .talk-panel{margin-top:12px}
+/* Lobby chat: under the squad in portrait; in landscape phones it takes the left column under a shorter banner. */
+.mp-screen[data-view=lobby] .talk-panel{flex-shrink:0}
+@media(orientation:landscape) and (max-height:520px){.mp-screen[data-view=lobby]:has(.talk-panel) .mp-banner{grid-row:2}.mp-screen[data-view=lobby] .talk-panel{grid-column:1;grid-row:3;min-height:0;overflow:auto;padding:6px 10px;gap:5px}.mp-screen[data-view=lobby] .talk-log{max-height:44px}.mp-screen[data-view=lobby] .talk-panel button,.mp-screen[data-view=lobby] .talk-send input{min-height:36px}}
+.talk-panel-head span{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0 12px}
+/* Lobby rename (Arthur 2026-09-28): your own name plate is a button with an amber 改名 mark; it edits in its own seat. */
+.mp-screen .mp-name-edit{border:0;padding:0;min-height:36px;display:inline-flex;align-items:center;gap:8px;text-align:left;font-size:14px;max-width:100%}
+.mp-screen .mp-name-edit strong{overflow-wrap:anywhere;font-weight:500;border-bottom:1px dashed #e6bd7399}
+.mp-rename-hint{flex-shrink:0;font-size:11px;line-height:1;color:#f3dcaf;border:1px solid #e6bd7380;border-radius:3px;padding:3px 6px}
+.mp-rename{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}
+.mp-rename input{grid-column:1/-1;min-width:0;min-height:44px;background:#17252b;color:#eeeae1;border:1px solid #e6bd73;border-radius:8px;padding:10px 12px;font:inherit;font-size:16px}
+.mp-screen .mp-rename button{min-height:44px;padding:0 8px;font-size:15px}
+.mp-screen .mp-rename .mp-primary{width:auto;min-height:44px;font-size:15px}
+/* The seats never shrink under the chat panel (the open rename box adds a row); the lobby body scrolls instead. */
+.mp-screen[data-view=lobby] .mp-squad{flex-shrink:0}
+/* A seat claimed with an account (ACCOUNTS.md, Room identity): the account level beside the nickname. */
+.mp-level{color:#f3dcaf;background:#e6bd7324}
+
+.mp-bot-fill{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 12px;border:1px solid #6c7b80;border-radius:8px;font-size:16px;cursor:pointer}.mp-bot-fill input{width:22px;height:22px;margin:0;accent-color:#e1b0a0}
+
+/* Co-op downs, revives and medkits (src/coop-revive-view.mjs). Hosted build only: v5 co-op runs there. */
+.aid-layer{position:fixed;inset:0;z-index:24;pointer-events:none;color:#eeeae1;font-family:"Helvetica Neue","PingFang TC",sans-serif;text-shadow:0 1px 4px #000}.aid-layer[hidden]{display:none}
+/* Down: the world greys and darkens toward the edges; the camera itself drops near the ground (game.js). */
+#world{transition:filter .6s}body.aid-down #world{filter:grayscale(.88) brightness(.8) contrast(1.06)}
+.aid-veil{position:absolute;inset:0;opacity:0;transition:opacity .6s;background:radial-gradient(ellipse at 50% 50%,transparent 34%,#1a0605b8 78%,#0a0202ee 100%)}.aid-down .aid-veil{opacity:1}
+body.aid-down #crosshair,body.aid-watching #crosshair,body.aid-down #hitmarker,body.aid-watching #hitmarker{display:none}
+/* No moving or firing while down or watching: the controls fade and let touches through to the view drag. */
+body.aid-down #touch-move-zone,body.aid-down .touch-actions,body.aid-watching #touch-move-zone,body.aid-watching .touch-actions{opacity:.22;pointer-events:none}
+.aid-banner{position:absolute;left:50%;top:19%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;white-space:nowrap}.aid-banner[hidden]{display:none}
+.aid-banner strong{font-size:24px;font-weight:500;letter-spacing:4px;font-variant-numeric:tabular-nums}.aid-down .aid-banner strong{color:#ffb4a2}
+.aid-banner span{font-size:13px;letter-spacing:2px;color:#d7e2df}.aid-banner small{font-size:11px;letter-spacing:1px;color:#9fb0b6}.aid-banner small:empty{display:none}
+/* Markers over downed teammates: 倒下 · 秒 · 距離, kept on screen at the edges (as pings are). */
+.aid-mark{position:absolute;left:0;top:0;width:170px;margin:-10px 0 0 -85px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
+.aid-mark i{position:relative;width:18px;height:18px;border-radius:50%;background:#e2583f;box-shadow:0 0 0 3px #e2583f55,0 0 12px #ff6a4d;animation:aid-pulse 1.2s ease-in-out infinite}
+.aid-mark i::before,.aid-mark i::after{content:'';position:absolute;left:50%;top:50%;background:#fff;transform:translate(-50%,-50%)}.aid-mark i::before{width:10px;height:3px}.aid-mark i::after{width:3px;height:10px}
+.aid-mark span{font-size:12px;font-weight:600;color:#ffc6b8;white-space:nowrap;font-variant-numeric:tabular-nums}.aid-mark small{font-size:10px;color:#7fd7ff}.aid-edge span,.aid-edge small{opacity:.75}
+@keyframes aid-pulse{50%{box-shadow:0 0 0 6px #e2583f22,0 0 16px #ff6a4d}}@media(prefers-reduced-motion:reduce){.aid-mark i{animation:none}}
+/* The revive ring: same look and place as the hostage rescue ring (#rescue-progress in style.css); progress only from the
+   host's clock, never a CSS timer. */
+.aid-ring{position:absolute;left:50%;top:58%;transform:translateX(-50%);width:80px;height:80px;color:#9df0bf;filter:drop-shadow(0 2px 5px #000)}.aid-ring[hidden]{display:none}
+.aid-ring svg{width:100%;height:100%;transform:rotate(-90deg)}.aid-ring circle{fill:#071419b3;stroke:#c4e4dd40;stroke-width:4}.aid-ring .aid-arc{fill:none;stroke:currentColor;stroke-linecap:round}
+.aid-hold{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:50%;background:transparent;color:inherit;font:inherit;pointer-events:none;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.aid-hold span{position:absolute;inset:0;display:grid;place-items:center;font-size:23px;letter-spacing:0}
+body.touch-mode .aid-hold:not(:disabled){pointer-events:auto;cursor:pointer}.aid-hold:active:not(:disabled){background:#9df0bf22}
+.aid-ring em{position:absolute;top:88px;left:50%;transform:translateX(-50%);white-space:nowrap;font-style:normal;font-size:12px;letter-spacing:2px}
+.aid-ring[data-state="interrupted"]{color:#ffc28a}.aid-ring[data-state="busy"]{color:#a7b6bb}
+.aid-note{position:absolute;left:50%;top:55%;transform:translateX(-50%);padding:4px 10px;border-radius:4px;background:#0c171dcc;font-size:12px;letter-spacing:2px;color:#ffd0a8;white-space:nowrap}.aid-note[hidden]{display:none}
+.aid-kit{position:absolute;left:35px;bottom:122px;padding:4px 10px 4px 26px;border-radius:4px;background:#0c171dcc;border-left:3px solid #3fc07a;font-size:12px;letter-spacing:1px}.aid-kit[hidden]{display:none}
+.aid-kit::before,.aid-kit::after{content:'';position:absolute;left:10px;top:50%;background:#3fc07a;transform:translateY(-50%)}.aid-kit::before{width:11px;height:3px}.aid-kit::after{width:3px;height:11px;left:14px}
+.aid-arrows{position:absolute;left:0;right:0;top:44%;display:flex;justify-content:space-between;padding:0 calc(env(safe-area-inset-right,0px) + 18px) 0 calc(env(safe-area-inset-left,0px) + 18px)}.aid-arrows[hidden]{display:none}
+.aid-arrows button{pointer-events:auto;width:52px;height:52px;padding:0;border-radius:50%;border:1px solid #ccdae377;background:#10212ccc;color:#eeeae1;font:28px/1 "Helvetica Neue",sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}
+body.touch-mode .aid-banner{top:calc(var(--safe-top,0px) + 12px)}body.touch-mode .aid-banner strong{font-size:19px;letter-spacing:2px}body.touch-mode .aid-banner span{font-size:11px;letter-spacing:1px}
+body.touch-mode .aid-ring{top:48%;width:68px;height:68px}body.touch-mode .aid-ring em{top:74px}body.touch-mode .aid-hold span{font-size:15px;white-space:nowrap}
+body.touch-mode .aid-note{top:calc(48% + 100px);font-size:11px;letter-spacing:1px}
+/* Under the minimap's street name (#compass: top safe + 126 px, portrait 185 px), clear of it. */
+body.touch-mode .aid-kit{left:auto;bottom:auto;right:calc(var(--safe-right,0px) + 14px);top:calc(var(--safe-top,0px) + 148px);font-size:11px}
+@media(orientation:portrait){body.touch-mode .aid-kit{top:calc(var(--safe-top,0px) + 207px)}body.touch-mode .aid-banner{top:24%}}
+/* Squad list (game.js updateSquad): who carries a kit, who is down with seconds left, who is dead. */
+#squad .aid-squad-kit{font-style:normal;color:#3fc07a;margin-left:5px}#squad .dead{color:#8f9ba1}#squad .dead i b{background:#8f9ba1}
+/* Keep the squad notice, the interaction line and the ammo clear of the banner and the ring (as for the hostage ring). */
+body.aid-down #notification,body.aid-watching #notification{top:34%}
+body:has(.aid-layer:not([hidden]) .aid-ring:not([hidden])) #interaction{top:calc(58% + 120px)}body.touch-mode:has(.aid-layer:not([hidden]) .aid-ring:not([hidden])) #interaction{top:calc(48% + 104px)}
+body.aid-down .ammo-panel,body.aid-watching .ammo-panel,body.aid-down .fire-hint,body.aid-watching .fire-hint{opacity:.3}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "港域時空 HONG KONG ZERO", "alternateName": ["HONG KONG ZERO", "白夜銅鑼灣", "WHITEOUT", "白夜銅鑼灣 Whiteout Causewaybay", "逆火尖沙咀", "Counterfire Tsim Sha Tsui", "暴雪尖沙咀", "風滿彌敦道", "Gale Nathan Road", "白夜銅鑼灣 WHITEOUT", "Whiteout Causewaybay"], "url": "https://hongkongzero.com/", "image": "https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg", "inLanguage": "zh-Hant", "gamePlatform": ["Web browser"], "genre": ["Action", "First-person shooter"], "isAccessibleForFree": true}</script>
+<script defer src="analytics.js" data-game="causewaybay-snow" data-maps="causeway-bay,tsim-sha-tsui,mong-kok" data-build-id="903606e3ec113f2d"></script></head>
+<body>
+<canvas id="world" aria-label="港域時空：香港街區第一人稱 3D 動作遊戲"></canvas>
+<div id="vignette"></div><div id="grain"></div><div id="damage"></div><div id="incoming-direction" aria-hidden="true"><span>▲</span></div><div id="flash"></div>
+<section id="menu" class="screen">
+ <header class="mast"><div class="brand"><span class="brand-mark"><svg class="snow-symbol" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3v42M6 13l36 22M6 35l36-22M18 8l6 6 6-6M18 40l6-6 6 6M7 20l8-2-2-8M41 28l-8 2 2 8M7 28l8 2-2 8M41 20l-8-2 2-8"/></svg></span> HONG KONG ZERO</div><div class="weather"><a class="game-about-link mast-about" href="about.html">遊戲背景</a></div></header>
+ <main class="title-block"><h1>港域<span>時空</span></h1><p class="intro menu-setting">Hong Kong, 2027, An impossible winter</p><div class="menu-actions"><button id="start" class="primary">開始劇情 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="coop-open" class="secondary mp-cta" hidden><span class="mp-cta-text"><span class="mp-cta-title">多人模式<small class="status-tag">測試版</small></span><span class="mp-cta-sub">合作 · 對戰<span class="mp-cta-live" hidden><i aria-hidden="true"></i><span class="mp-cta-count"></span></span></span></span><span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="explore" class="secondary">探索地圖 <span>→</span></button></div><p id="inapp-hint" hidden><button type="button" data-open>在瀏覽器開啟，可橫向遊玩 ›</button> <button type="button" data-close aria-label="關閉提示">×</button></p><div id="coop" class="coop-panel" hidden>
+  <div id="coop-entry" class="coop-entry"><div class="eyebrow"><span class="red-line"></span> CO-OP</div><h2 class="coop-title">多人合作 <small class="status-tag">測試版</small></h2>
+   <label class="coop-field" for="coop-name">名字</label><input id="coop-name" class="coop-input" maxlength="12" placeholder="玩家" autocomplete="nickname">
+   <button id="coop-create" class="primary" type="button">建立房間 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button>
+   <div class="coop-or"><span>或</span></div>
+   <div class="coop-join"><input id="coop-code" class="coop-input coop-code-input" maxlength="4" placeholder="房號" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-label="房號"><button id="coop-join" class="secondary" type="button">加入 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button></div>
+   <button id="coop-close" class="coop-text" type="button"><svg class="back-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> 返回</button></div>
+  <div id="coop-lobby" hidden><div class="eyebrow"><span class="red-line"></span> ROOM</div>
+   <div class="coop-room"><button id="coop-copy" class="coop-code" type="button" aria-label="複製房號"><strong id="coop-room-code"></strong><svg class="copy-symbol" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5h10"/></svg></button><canvas id="coop-qr" class="coop-qr" width="176" height="176" aria-label="房間連結 QR code，用手機相機掃描加入"></canvas></div>
+   <ul id="coop-seats" class="coop-seats"></ul>
+   <p id="coop-hint" class="coop-hint" hidden><i></i><span></span></p>
+   <div class="coop-actions"><button id="coop-begin" class="primary" type="button" hidden>開始行動 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="coop-share" class="secondary" type="button">分享 <span><svg class="share-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5M5 14v5h14v-5"/></svg></span></button><button id="coop-leave" class="coop-text" type="button">離開房間</button></div></div>
+  <p id="coop-status" class="coop-status" role="status" aria-live="polite" hidden></p>
+ </div></main>
+</section>
+<section id="maps" class="screen maps-screen" hidden aria-labelledby="maps-title">
+ <div class="maps-sheet"><header class="maps-head"><button id="maps-back" class="maps-back" type="button"><svg class="back-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> 返回</button><div class="eyebrow"><span class="red-line"></span> <span id="maps-eyebrow">SELECT DISTRICT</span></div><h2 id="maps-title" tabindex="-1">選擇關卡</h2></header><ul id="map-list" class="map-grid"></ul></div>
+</section>
+<section id="briefing" class="screen briefing-screen illustrated-screen" hidden aria-labelledby="briefing-title">
+ <article class="briefing-sheet"><div class="eyebrow"><span class="red-line"></span> <span id="briefing-codename">OPERATION WHITEOUT</span> / 行動簡報</div><div class="briefing-meta" id="briefing-meta">銅鑼灣 · 02:17 · 大雪</div><h2 id="briefing-title">末班電車之後，<br>槍聲響起。</h2><p class="briefing-story desktop-copy" id="briefing-intro">一群恐怖分子趁暴雪襲擊銅鑼灣，持槍佔據 SOGO、波斯富街與時代廣場一帶。電車停駛，車輛翻側，居民已緊急撤離。</p><p id="level-story" class="briefing-story desktop-copy">你奉命進入封鎖區。穿過受襲街道，將所有武裝襲擊者全數消滅，結束這場雪夜襲擊。</p><p class="touch-copy mobile-story" id="briefing-mobile">暴雪中的銅鑼灣遭武裝襲擊。你奉命突破封鎖，清除街區內的敵人。</p><div class="briefing-order"><span>唯一目標</span><strong id="level-objective">消滅全部 12 名襲擊者</strong></div><div class="briefing-controls desktop-copy"><span><b>WASD</b> 移動 · <b>滑鼠</b>／<b>← →</b> 轉向</span><span><b>左鍵</b> 射擊 · <b>R</b> 換彈</span><span><b>右鍵</b> 瞄準 · <b>TAB</b> 地圖</span></div><div class="briefing-actions"><button id="begin-mission" class="primary"><b id="begin-label">開始行動</b> <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="briefing-back" class="secondary">返回</button></div><button id="controls" class="briefing-more">更多操作與設定</button><img class="story-art" id="briefing-art" width="1536" height="1024" alt="行動簡報插圖" decoding="async"></article>
+</section>
+<div id="hud" hidden>
+ <div class="hud-top"><div class="objective"><span class="overline" id="chapter">01 / 怡和街封鎖線</span><strong id="objective">消滅全部襲擊者</strong><span id="progress">已消滅 0 / 12 · 第 1 組</span><div id="squad" hidden aria-label="小隊狀態"></div></div><div class="top-actions"><button id="mute" aria-label="切換音效"><span id="mute-label" class="mute-label">音效 開</span> <kbd>M</kbd></button><button id="k8s-terminal-btn" type="button" onclick="window.K8sBridge?.showConfigModal()">K8S 終端</button><button id="pause-button">暫停・設定 <kbd>ESC</kbd></button></div></div>
+ <div id="boss-hud" hidden><strong id="boss-label">鐵幕</strong><div><i id="boss-health"></i></div></div><div id="compass"><span id="district-location">SOGO 前地</span></div>
+ <div id="crosshair"><i></i><i></i><i></i><i></i><b></b></div><div id="hitmarker"><i></i><i></i><i></i><i></i></div>
+ <div id="notification" role="status" aria-live="polite"></div><div id="interaction"></div><div id="grenade-prompt" hidden></div>
+ <div class="hud-bottom"><div class="health-panel"><span class="overline">狀態 / VITALS</span><div class="health-value"><span>＋</span> <strong id="health">100</strong><small id="health-label">穩定</small></div><div class="health-track"><i id="health-bar"></i></div></div><div class="bottom-hint">TAB 地圖 <span>·</span> W A S D 移動 <span>·</span> ← → 轉向 <span>·</span> R 換彈 <span>·</span> 右鍵 瞄準 <span>·</span> SHIFT 衝刺</div><div class="ammo-panel"><span id="grenade-hud" class="grenade-hud" hidden>手榴彈 <b id="grenade-count">0/2</b> <kbd>G</kbd></span><div class="fire-hint">滑鼠左鍵、J 或「/」射擊<small>按住連續開火</small></div><span class="overline">AK / 全自動</span><div><strong id="ammo">24</strong><span class="ammo-total"> / ∞</span></div><span id="reload-label">7.62 MM</span></div></div>
+ <div id="rescue-progress" class="rescue-progress" hidden>
+  <svg id="rescue-meter" viewBox="0 0 80 80" role="progressbar" aria-label="市民救援進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><circle class="rescue-track" cx="40" cy="40" r="34"/><circle id="rescue-arc" cx="40" cy="40" r="34" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg><button id="mission-interact" class="mission-interact" type="button" aria-label="按住救援" disabled><span id="rescue-value">E</span></button><span id="rescue-label">救援</span>
+ </div>
+ <div id="reload-progress"><i></i></div><canvas id="radar" width="180" height="180" role="button" aria-label="街區雷達，點按打開街區地圖"></canvas><span class="radar-open" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></span>
+ <div id="touch-controls" aria-label="觸控操作">
+  <div id="touch-move-zone" aria-label="拖動移動，向前推盡衝刺"><div id="touch-stick"><i></i><span>移動</span><small>↑ 推盡衝刺</small></div></div>
+  <div class="touch-actions"><button id="touch-aim" aria-pressed="false" aria-label="切換瞄準">瞄準</button><button id="touch-reload" aria-label="更換彈匣">換彈</button><button id="touch-jump" aria-label="跳躍">跳躍</button><button id="touch-fire" aria-label="按住射擊並拖動轉向"><b>◎</b>開火<small>按住可拖動</small></button><button id="touch-grenade" class="empty" hidden aria-disabled="true" aria-label="沒有手榴彈"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="11" cy="15.2" rx="5.6" ry="6.6"/><rect x="8.9" y="5.4" width="4.2" height="3.2" rx=".7"/><path d="M13.1 6.6l4.6 1.6v5.2"/><circle cx="7" cy="5.6" r="2.1"/></svg><span id="touch-grenade-count">0</span></button><button id="touch-grenade-cancel" hidden aria-label="收回手榴彈">取消</button></div>
+ </div>
+</div>
+<section id="district-map" class="map-backdrop" hidden aria-label="銅鑼灣街區地圖"><div class="map-sheet"><div class="map-header"><div><span class="overline">DISTRICT / <span id="map-district-english">CAUSEWAY BAY</span></span><h2 id="map-district-title">銅鑼灣街區</h2><p id="map-location"></p></div><button id="close-map">返回遊戲 <kbd>TAB / ESC</kbd></button></div><canvas id="map-canvas" width="900" height="900" aria-label="顯示街道、地標、玩家位置及敵人位置的地圖"></canvas><div class="map-legend"><span>▲ 你的位置</span><span class="enemy-key">● 敵人</span><span class="exit-key">■ 街道掩體</span><span id="map-track-legend" style="color:#d1aa6c">━ 電車軌道</span></div><p class="map-note"><span id="map-landmarks">SOGO → 波斯富街 → 羅素街 → 時代廣場</span><br>遊戲已暫停 · <a href="credits.html" target="_blank" rel="noopener">資料來源與致謝</a></p></div></section>
+<section id="pause" class="modal-backdrop" hidden><div class="modal"><button id="pause-close" class="modal-close" type="button" aria-label="關閉，繼續行動">✕</button><div class="eyebrow">SIGNAL ON HOLD</div><h2>行動未完</h2><p>街區已暫停。準備好再繼續。</p><button id="resume" class="primary">繼續行動 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="return-menu" class="secondary">返回主畫面</button><button id="pause-mute" class="secondary" aria-label="切換音效"><span id="pause-mute-label" class="mute-label">音效 開</span> <kbd>M</kbd></button><details id="pause-feedback"><summary>評分與留言</summary><form id="feedback-form"><fieldset id="feedback-fields"><legend>這次體驗如何？</legend><div class="feedback-stars"><label><input type="radio" name="rating" value="1" required aria-label="1 星"><span>★</span></label><label><input type="radio" name="rating" value="2" required aria-label="2 星"><span>★</span></label><label><input type="radio" name="rating" value="3" required aria-label="3 星"><span>★</span></label><label><input type="radio" name="rating" value="4" required aria-label="4 星"><span>★</span></label><label><input type="radio" name="rating" value="5" required aria-label="5 星"><span>★</span></label></div><label for="feedback-comment">有什麼地方可以更好？（選填）</label><textarea id="feedback-comment" maxlength="500" rows="3" placeholder="最多 500 字"></textarea><label class="feedback-trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label></fieldset><p class="feedback-note">毋須登入，留言只供開發者查看，請勿填寫個人資料。見<a href="privacy.html" target="_blank" rel="noopener">收集個人資料聲明</a>。</p><button id="feedback-submit" class="primary" type="submit">送出評分</button><p id="feedback-status" role="status" aria-live="polite"></p></form></details><details id="pause-subscribe" class="subscribe-cta" data-outcome="pause"><summary>新關卡通知</summary><form class="subscribe-form"><fieldset class="subscribe-fields"><label for="pause-subscribe-email">留下電郵，新關卡推出時第一時間通知你！</label><input id="pause-subscribe-email" class="subscribe-email" name="email" type="email" maxlength="254" required autocomplete="email" inputmode="email" spellcheck="false"><label class="subscribe-consent"><input type="checkbox" name="consent" required>我同意收取《港域時空》新關卡及開發進度的電郵通知。</label><label class="subscribe-trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label></fieldset><button class="primary subscribe-submit" type="submit">確認收取通知 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><p class="cta-status" role="status" aria-live="polite"></p><p class="cta-note">登記後先收到確認電郵，確認後才會收到通知。電郵只用於《港域時空》的新關卡及開發進度，每封通知均附退訂連結。見<a href="privacy.html" target="_blank" rel="noopener">收集個人資料聲明</a>。</p></form></details><label class="quality-setting">畫面模式 <select data-quality aria-label="畫面模式"><option value="eco">省電 · 30 FPS</option><option value="smooth">流暢 · 60 FPS</option></select></label><label class="sensitivity-setting">轉向靈敏度 <input data-sensitivity type="range" min="0.5" max="1.8" step="0.1" value="1" aria-label="轉向靈敏度"></label><label class="sensitivity-setting">視野 <span data-fov-value>66°</span><input data-fov type="range" min="55" max="80" step="1" value="66" aria-label="視野"></label><label class="sensitivity-setting">音樂 <span data-volume-value="music">100%</span><input data-volume="music" type="range" min="0" max="100" step="5" value="100" aria-label="音樂音量"></label><label class="sensitivity-setting">音效 <span data-volume-value="sfx">100%</span><input data-volume="sfx" type="range" min="0" max="100" step="5" value="100" aria-label="音效音量"></label><div class="toggle-settings"><label class="toggle-setting"><input data-invert-y type="checkbox"> 視角上下反轉（向上＝望下）</label><label class="toggle-setting"><input data-steady type="checkbox"> 減少鏡頭晃動</label></div><p class="touch-copy modal-note">左側移動 · 右側轉向 · 按住開火可拖動瞄準<br>向前推盡衝刺 · 瞄準按鈕可切換倍率</p><div class="modal-note desktop-copy">Tab 街區地圖 · WASD 移動 · 滑鼠轉向 · 左鍵射擊 · R 換彈<br>方向鍵轉向 · J 或「/」射擊 · 空白鍵跳躍 · M 靜音</div></div></section>
+<section id="help" class="modal-backdrop" hidden><div class="modal help-modal"><div class="eyebrow">FIELD GUIDE / 操作指南</div><h2>走進雪夜</h2><div class="desktop-copy"><div class="control-row"><span>移動 / 衝刺</span><b>W A S D / SHIFT</b></div><div class="control-row"><span>轉向 / 瞄準</span><b>滑鼠 / 按住右鍵</b></div><div class="control-row"><span>射擊 / 換彈</span><b>左鍵 / R</b></div><div class="control-row"><span>街區地圖</span><b>TAB / 點小地圖</b></div><div class="control-row"><span>跳躍 / 暫停</span><b>SPACE / ESC</b></div><div class="control-row"><span>鍵盤轉向 / 射擊</span><b>方向鍵 / J 或「/」</b></div><div class="control-row"><span>音效開關</span><b>M</b></div></div><div class="touch-copy touch-guide"><strong>移動、瞄準、射擊，同時操作</strong><p>左拇指拖動搖桿移動，向前推盡衝刺。右拇指拖動畫面轉向，或按住「開火」並拖動瞄準。輕按右上角小地圖打開街區地圖。</p></div><p id="help-mission">各地區有不同任務，開始前請留意本關目標。利用車輛與街角掩護，留意敵人動向；「探索地圖」沒有敵人，可自由探索、熟習操作。</p><label class="quality-setting">畫面模式 <select data-quality aria-label="畫面模式"><option value="eco">省電 · 30 FPS</option><option value="smooth">流暢 · 60 FPS</option></select></label><label class="sensitivity-setting">轉向靈敏度 <input data-sensitivity type="range" min="0.5" max="1.8" step="0.1" value="1" aria-label="轉向靈敏度"></label><label class="sensitivity-setting">視野 <span data-fov-value>66°</span><input data-fov type="range" min="55" max="80" step="1" value="66" aria-label="視野"></label><label class="sensitivity-setting">音樂 <span data-volume-value="music">100%</span><input data-volume="music" type="range" min="0" max="100" step="5" value="100" aria-label="音樂音量"></label><label class="sensitivity-setting">音效 <span data-volume-value="sfx">100%</span><input data-volume="sfx" type="range" min="0" max="100" step="5" value="100" aria-label="音效音量"></label><div class="toggle-settings"><label class="toggle-setting"><input data-invert-y type="checkbox"> 視角上下反轉（向上＝望下）</label><label class="toggle-setting"><input data-steady type="checkbox"> 減少鏡頭晃動</label></div><button id="close-help" class="primary">明白 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button></div></section>
+<section id="result" class="modal-backdrop" hidden><div class="modal result-modal"><div class="eyebrow" id="result-kicker">OPERATION COMPLETE</div><h2 id="result-title">穿過白夜</h2><p id="result-copy">12 名武裝襲擊者已全數消滅。銅鑼灣的槍聲終於平息。</p><p id="result-thanks" hidden>感謝遊玩《港域時空》。下一區正在建造中。喜歡的話，請給這一章評分、分享給朋友，或留下電郵，新地圖推出時第一時間通知你。</p><div id="result-share" hidden><button id="share-game" class="secondary" type="button">分享遊戲 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 12v8h14v-8"/></svg></span></button><p id="share-status" role="status" aria-live="polite"></p></div><div class="results-grid"><div><span id="result-kills-label">擊退</span><strong id="result-kills">12</strong></div><div><span>命中率</span><strong id="result-accuracy">0%</strong></div><div><span>行動時間</span><strong id="result-time">0:00</strong></div></div><div id="result-score" class="result-score" hidden><div class="score-head"><span>本局分數</span><strong id="score-total">0</strong></div><p id="score-best" class="score-best"></p><ul id="score-parts" class="score-parts" aria-label="計分明細"></ul></div><div class="result-actions"><button id="next-level" class="primary" hidden><b id="next-level-label">前往下一關</b> <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="next-district" class="primary" hidden><b id="next-district-label"></b> <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><p id="result-wait" class="coop-wait" hidden>等待主機</p><button id="retry" class="primary"><b id="retry-label">再走一次</b> <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="result-chapter" class="primary" hidden><b>選擇下一章</b> <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="result-lobby" class="secondary" hidden>返回大廳</button><button id="result-menu" class="secondary">返回主畫面</button><button id="result-leave" class="result-leave" type="button" hidden>離開房間</button></div><div id="result-feedback" hidden><div id="result-rating"></div></div><img id="result-art" class="story-art" width="1536" height="1024" alt="" decoding="async"><div id="result-cta" class="result-cta subscribe-cta"><p class="cta-lead">想緊貼《港域時空》的開發？</p><form class="subscribe-form"><fieldset class="subscribe-fields"><label for="subscribe-email">留下電郵，新關卡推出時第一時間通知你！</label><input id="subscribe-email" class="subscribe-email" name="email" type="email" maxlength="254" required autocomplete="email" inputmode="email" spellcheck="false"><label class="subscribe-consent"><input type="checkbox" name="consent" required>我同意收取《港域時空》新關卡及開發進度的電郵通知。</label><label class="subscribe-trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label></fieldset><button class="secondary subscribe-submit" type="submit">確認收取通知 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><p class="cta-status" role="status" aria-live="polite"></p><p class="cta-note">登記後先收到確認電郵，確認後才會收到通知。電郵只用於《港域時空》的新關卡及開發進度，每封通知均附退訂連結。見<a href="privacy.html" target="_blank" rel="noopener">收集個人資料聲明</a>。</p></form></div></div></section>
+<div id="boot" role="status" aria-live="polite"><div class="boot-art" aria-hidden="true"></div><div class="boot-snow" aria-hidden="true"><i></i><i></i><i></i></div><div class="eyebrow boot-brand">HONG KONG ZERO</div><div class="boot-emblem" aria-hidden="true"><span><svg class="snow-symbol" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3v42M6 13l36 22M6 35l36-22M18 8l6 6 6-6M18 40l6-6 6 6M7 20l8-2-2-8M41 28l-8 2 2 8M7 28l8 2-2 8M41 20l-8-2 2-8"/></svg></span><i></i></div><div class="boot-panel"><div id="boot-story" class="boot-story" hidden aria-hidden="true"><small id="boot-story-title" hidden></small><div id="boot-story-text" class="boot-story-text"></div></div><div id="boot-district" class="boot-district" hidden><span id="boot-english"></span><strong id="boot-name"></strong></div><p>雪正在落下</p><div class="boot-status"><small id="boot-stage">正在準備街區…</small><span id="boot-percent" aria-hidden="true">0%</span></div><div class="boot-track" id="boot-progress" role="progressbar" aria-label="遊戲載入進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div><span class="boot-note">首次進入需要較長時間，請稍候</span><p id="boot-error" class="boot-error" role="alert" hidden></p><div class="boot-actions"><button id="boot-home" class="primary" type="button" hidden>返回主選單</button><button id="boot-cancel" class="boot-cancel" type="button" hidden>取消</button></div></div></div>
+<div id="error" hidden><h2>暫時未能開始遊戲</h2><p>請重新載入頁面。如仍未能進入，請更新瀏覽器，並確認已開啟硬體加速。</p><button id="error-reload" class="primary" type="button">重新載入</button></div>
+<div id="inapp-guide" hidden role="dialog" aria-modal="true" aria-labelledby="inapp-guide-steps"><div class="inapp-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M8 5h11v11"/></svg></div><div class="inapp-sheet"><p id="inapp-guide-steps" data-steps></p><button type="button" class="primary" data-copy>複製連結</button><input data-url readonly hidden aria-label="遊戲連結"><p data-status aria-live="polite"></p><button type="button" class="secondary" data-stay>留在這裏繼續玩</button></div></div>
+<script src="./k8s-bridge.js"></script>
+<script src="./assets/first-frame-cdad914c569c27de.js"></script><script type="module" src="./assets/boot-a0bd2531c604d71c.js"></script>
+
+</body></html>
