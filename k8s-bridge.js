@@ -21,6 +21,8 @@
   let isConnected = false;
   let isChecking = false;
   let lastTriggerTime = 0;
+  let triggerTimer = null;
+  const pendingTriggers = [];
 
   // Active configuration
   const config = {
@@ -107,6 +109,7 @@
       ws.send(JSON.stringify(subscribeMsg));
       console.info('[k8s-bridge] Sent subscribe message', subscribeMsg);
       onSuccess?.();
+      flushTriggerQueue();
     };
 
     ws.onmessage = (event) => {
@@ -135,49 +138,54 @@
   /**
    * Handle incoming messages from AWS SAM backend (k8s-grader-api)
    */
-  function handleBackendMessage(msg) {
-    const status = msg.status || (msg.statusCode === 200 ? 'COMPLETED' : 'UNKNOWN');
-    const message = msg.message || msg.progress_message || msg.body || '';
-    const reportUrl = msg.report_url || msg.reportUrl || '';
-    const score = msg.score !== undefined ? msg.score : null;
+  function handleBackendMessage(envelope) {
+    const msg = envelope && typeof envelope.data === 'object' && envelope.data !== null
+      ? envelope.data
+      : envelope;
+    const status = String(msg?.status || (msg?.statusCode === 200 ? 'COMPLETED' : 'UNKNOWN')).toUpperCase();
+    const message = msg?.message || msg?.progress_message || msg?.body || '';
+    const reportUrl = msg?.report_url || msg?.reportUrl || '';
+    const score = msg?.total_points ?? msg?.score ?? null;
 
     if (status === 'RUNNING') {
-      showRunningState(message || 'Executing automated test suite against Kubernetes cluster...');
+      showRunningState(msg);
+    } else if (status === 'OK' || status === 'STARTED' || status === 'IN_PROGRESS') {
+      isChecking = false;
+      showProgressState(msg);
     } else if (status === 'COMPLETED') {
       isChecking = false;
       showPassedState({
-        title: '✅ Phase Completed',
+        title: '✅ Task Completed',
         message: message || 'All Kubernetes checks passed! Pods deployed and healthy.',
         score,
-        reportUrl
+        reportUrl,
+        taskId: msg?.task_id
       });
     } else if (status === 'FAILED') {
       isChecking = false;
       showFailedState({
         title: '❌ Verification Failed',
         message: message || 'Checks failed. Please review your Kubernetes manifests.',
-        reportUrl
+        reportUrl,
+        taskId: msg?.task_id,
+        phase: msg?.next_game_phrase || msg?.current_phase
       });
     } else if (status === 'ERROR') {
       isChecking = false;
       showFailedState({
         title: '⚠️ Execution Error',
         message: message || 'Failed to communicate with grader service.',
-        reportUrl
+        reportUrl,
+        taskId: msg?.task_id,
+        phase: msg?.next_game_phrase || msg?.current_phase
       });
     }
   }
 
-  /**
-   * Send 'talk' action to trigger real-time grading
-   */
-  function sendTrigger(actionType, details) {
-    const now = Date.now();
-    if (now - lastTriggerTime < 2500) {
-      console.info('[k8s-bridge] Trigger throttled');
+  function flushTriggerQueue() {
+    if (isChecking || pendingTriggers.length === 0) {
       return;
     }
-    lastTriggerTime = now;
 
     if (!config.apiKey || !config.wsUrl) {
       showConfigModal();
@@ -185,15 +193,26 @@
     }
 
     if (!ws || ws.readyState !== WebSocket.OPEN) {
-      connectWebSocket(() => {
-        sendTrigger(actionType, details);
-      });
+      connectWebSocket();
       return;
     }
 
+    const throttleDelay = Math.max(0, 2500 - (Date.now() - lastTriggerTime));
+    if (throttleDelay > 0) {
+      if (!triggerTimer) {
+        triggerTimer = window.setTimeout(() => {
+          triggerTimer = null;
+          flushTriggerQueue();
+        }, throttleDelay);
+      }
+      return;
+    }
+
+    const trigger = pendingTriggers.shift();
+    lastTriggerTime = Date.now();
     isChecking = true;
     pauseGame();
-    showRunningState(`Triggered by ${actionType}. Connecting to Kubernetes test cluster...`);
+    showRunningState(`Triggered by ${trigger.actionType}. Connecting to Kubernetes test cluster...`);
 
     const payload = {
       action: 'talk',
@@ -204,6 +223,18 @@
 
     console.info('[k8s-bridge] Sending trigger to backend:', payload);
     ws.send(JSON.stringify(payload));
+  }
+
+  /**
+   * Queue a 'talk' action to trigger real-time grading.
+   */
+  function sendTrigger(actionType, details) {
+    pendingTriggers.push({ actionType, details });
+    console.info('[k8s-bridge] Queued game trigger:', {
+      actionType,
+      pending: pendingTriggers.length
+    });
+    flushTriggerQueue();
   }
 
   /**
@@ -228,6 +259,7 @@
       }
       const canvas = document.getElementById('world') || document.querySelector('canvas');
       canvas?.requestPointerLock?.();
+      flushTriggerQueue();
     } catch (e) {
       console.warn('[k8s-bridge] Resume hook error', e);
     }
@@ -382,7 +414,7 @@
     if (modal) modal.style.display = 'none';
   }
 
-  function showRunningState(message) {
+  function showRunningState(payload) {
     const overlay = document.getElementById('k8s-grader-overlay');
     const title = document.getElementById('k8s-overlay-title');
     const subtitle = document.getElementById('k8s-overlay-subtitle');
@@ -391,9 +423,18 @@
     const desc = document.getElementById('k8s-status-desc');
     const extra = document.getElementById('k8s-extra-info');
     const resumeBtn = document.getElementById('k8s-resume-btn');
+    const message = typeof payload === 'string'
+      ? payload
+      : payload?.progress_message || payload?.message || 'Executing automated test suite against Kubernetes cluster...';
+    const phase = typeof payload === 'object'
+      ? payload?.next_game_phrase || payload?.current_phase || ''
+      : '';
+    const taskId = typeof payload === 'object' ? payload?.task_id || '' : '';
 
     title.textContent = '評估測試執行中...';
-    subtitle.textContent = `Target: ${config.game} | Node: ${config.npc}`;
+    subtitle.textContent = taskId
+      ? `Task: ${taskId}${phase ? ` | Phase: ${String(phase).toUpperCase()}` : ''}`
+      : `Target: ${config.game} | Node: ${config.npc}`;
     container.className = 'k8s-status-box running';
     spinner.style.display = 'block';
     desc.textContent = message;
@@ -403,27 +444,28 @@
     overlay.classList.remove('hidden');
   }
 
-  function showPassedState({ title, message, score, reportUrl }) {
+  function showProgressState(payload) {
     const overlay = document.getElementById('k8s-grader-overlay');
-    const titleEl = document.getElementById('k8s-overlay-title');
+    const title = document.getElementById('k8s-overlay-title');
     const subtitle = document.getElementById('k8s-overlay-subtitle');
     const container = document.getElementById('k8s-status-container');
     const spinner = document.getElementById('k8s-status-spinner');
     const desc = document.getElementById('k8s-status-desc');
     const extra = document.getElementById('k8s-extra-info');
     const resumeBtn = document.getElementById('k8s-resume-btn');
+    const phase = String(payload?.next_game_phrase || payload?.current_phase || '').toUpperCase();
+    const phaseName = payload?.phase_name || phase || 'Next Phase';
+    const message = payload?.message || 'Continue the Kubernetes task.';
+    const taskDescription = payload?.task_description || '';
 
-    titleEl.textContent = title;
-    subtitle.textContent = `Score: ${score !== null ? score : 'Passed'} | Cluster Verified`;
+    title.textContent = phase === 'CHECK' ? 'Task Verification' : 'Task Instructions';
+    subtitle.textContent = payload?.task_id
+      ? `Task: ${payload.task_id} | Phase: ${phaseName}`
+      : `Phase: ${phaseName}`;
     container.className = 'k8s-status-box passed';
     spinner.style.display = 'none';
     desc.textContent = message;
-
-    if (reportUrl) {
-      extra.innerHTML = `<a href="${reportUrl}" target="_blank" style="color: #6ee7b7; text-decoration: underline;">檢視 Pytest 詳細評分報告 ↗</a>`;
-    } else {
-      extra.innerHTML = '';
-    }
+    renderExtraInfo(extra, taskDescription !== message ? taskDescription : '', payload?.report_url || payload?.reportUrl || '', '#6ee7b7');
 
     resumeBtn.textContent = '繼續作戰 (Continue) →';
     resumeBtn.className = 'k8s-btn';
@@ -431,7 +473,27 @@
     overlay.classList.remove('hidden');
   }
 
-  function showFailedState({ title, message, reportUrl }) {
+  function renderExtraInfo(container, text, reportUrl, linkColor) {
+    container.replaceChildren();
+    if (text) {
+      const description = document.createElement('div');
+      description.textContent = text;
+      description.style.marginBottom = reportUrl ? '10px' : '0';
+      container.appendChild(description);
+    }
+    if (reportUrl) {
+      const link = document.createElement('a');
+      link.href = reportUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.style.color = linkColor;
+      link.style.textDecoration = 'underline';
+      link.textContent = '檢視 Pytest 詳細評分報告 ↗';
+      container.appendChild(link);
+    }
+  }
+
+  function showPassedState({ title, message, score, reportUrl, taskId }) {
     const overlay = document.getElementById('k8s-grader-overlay');
     const titleEl = document.getElementById('k8s-overlay-title');
     const subtitle = document.getElementById('k8s-overlay-subtitle');
@@ -442,16 +504,36 @@
     const resumeBtn = document.getElementById('k8s-resume-btn');
 
     titleEl.textContent = title;
-    subtitle.textContent = 'Cluster State Mismatch';
+    subtitle.textContent = `${taskId ? `Task: ${taskId} | ` : ''}Score: ${score !== null ? score : 'Passed'} | Cluster Verified`;
+    container.className = 'k8s-status-box passed';
+    spinner.style.display = 'none';
+    desc.textContent = message;
+    renderExtraInfo(extra, '', reportUrl, '#6ee7b7');
+
+    resumeBtn.textContent = '繼續作戰 (Continue) →';
+    resumeBtn.className = 'k8s-btn';
+    resumeBtn.style.display = 'inline-flex';
+    overlay.classList.remove('hidden');
+  }
+
+  function showFailedState({ title, message, reportUrl, taskId, phase }) {
+    const overlay = document.getElementById('k8s-grader-overlay');
+    const titleEl = document.getElementById('k8s-overlay-title');
+    const subtitle = document.getElementById('k8s-overlay-subtitle');
+    const container = document.getElementById('k8s-status-container');
+    const spinner = document.getElementById('k8s-status-spinner');
+    const desc = document.getElementById('k8s-status-desc');
+    const extra = document.getElementById('k8s-extra-info');
+    const resumeBtn = document.getElementById('k8s-resume-btn');
+
+    titleEl.textContent = title;
+    subtitle.textContent = taskId
+      ? `Task: ${taskId}${phase ? ` | Phase: ${String(phase).toUpperCase()}` : ''}`
+      : 'Cluster State Mismatch';
     container.className = 'k8s-status-box failed';
     spinner.style.display = 'none';
     desc.textContent = message;
-
-    if (reportUrl) {
-      extra.innerHTML = `<a href="${reportUrl}" target="_blank" style="color: #fca5a5; text-decoration: underline;">檢視錯誤診斷報告 ↗</a>`;
-    } else {
-      extra.innerHTML = '';
-    }
+    renderExtraInfo(extra, '', reportUrl, '#fca5a5');
 
     resumeBtn.textContent = '關閉並調整叢集配置 (Retry)';
     resumeBtn.className = 'k8s-btn secondary';
