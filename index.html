@@ -2,14 +2,12 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101619"><link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><title>港域時空 HONG KONG ZERO｜白夜銅鑼灣 Whiteout Causewaybay・逆火尖沙咀・風滿彌敦道</title>
-<meta name="description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
-<link rel="canonical" href="https://hongkongzero.com/">
+<meta name="theme-color" content="#101619"><link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><title>港域時空 × Kubernetes｜Hong Kong Zero</title>
+<meta name="description" content="原作：Arthur 與 Hong Kong Zero 團隊。本網站為非官方 Kubernetes 教學改作；官方原作請見 hongkongzero.com。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_HK">
 <meta property="og:title" content="港域時空 HONG KONG ZERO">
-<meta property="og:description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
-<meta property="og:url" content="https://hongkongzero.com/">
+<meta property="og:description" content="原作：Arthur 與 Hong Kong Zero 團隊。本網站為非官方 Kubernetes 教學改作；官方原作請見 hongkongzero.com。">
 <meta property="og:image" content="https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -17,7 +15,7 @@
 <meta property="og:image:alt" content="港域時空 HONG KONG ZERO：大雪中駛向銅鑼灣的電車與夜街">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="港域時空 HONG KONG ZERO">
-<meta name="twitter:description" content="港域時空 Hong Kong Zero 是免費香港實景第一人稱射擊網頁遊戲，收錄《白夜銅鑼灣 Whiteout Causewaybay》、《逆火尖沙咀 Counterfire Tsim Sha Tsui》與《風滿彌敦道 Gale Nathan Road》。在 SOGO、電車軌、維港及旺角街區探索、完成任務，或自由雪夜漫遊。支援電腦與手機瀏覽器，無需安裝。">
+<meta name="twitter:description" content="原作：Arthur 與 Hong Kong Zero 團隊。本網站為非官方 Kubernetes 教學改作；官方原作請見 hongkongzero.com。">
 <meta name="twitter:image" content="https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg">
 
 <link rel="stylesheet" href="./k8s-overlay.css">
@@ -906,14 +904,14 @@ body.aid-down #notification,body.aid-watching #notification{top:34%}
 body:has(.aid-layer:not([hidden]) .aid-ring:not([hidden])) #interaction{top:calc(58% + 120px)}body.touch-mode:has(.aid-layer:not([hidden]) .aid-ring:not([hidden])) #interaction{top:calc(48% + 104px)}
 body.aid-down .ammo-panel,body.aid-watching .ammo-panel,body.aid-down .fire-hint,body.aid-watching .fire-hint{opacity:.3}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "港域時空 HONG KONG ZERO", "alternateName": ["HONG KONG ZERO", "白夜銅鑼灣", "WHITEOUT", "白夜銅鑼灣 Whiteout Causewaybay", "逆火尖沙咀", "Counterfire Tsim Sha Tsui", "暴雪尖沙咀", "風滿彌敦道", "Gale Nathan Road", "白夜銅鑼灣 WHITEOUT", "Whiteout Causewaybay"], "url": "https://hongkongzero.com/", "image": "https://hongkongzero.com/assets/illustrations/og-hong-kong-zero-v3.jpg", "inLanguage": "zh-Hant", "gamePlatform": ["Web browser"], "genre": ["Action", "First-person shooter"], "isAccessibleForFree": true}</script>
 <script defer src="analytics.js" data-game="causewaybay-snow" data-maps="causeway-bay,tsim-sha-tsui,mong-kok" data-build-id="903606e3ec113f2d"></script></head>
 <body>
 <canvas id="world" aria-label="港域時空：香港街區第一人稱 3D 動作遊戲"></canvas>
 <div id="vignette"></div><div id="grain"></div><div id="damage"></div><div id="incoming-direction" aria-hidden="true"><span>▲</span></div><div id="flash"></div>
 <section id="menu" class="screen">
+ <p class="original-credit">原作：Arthur 與 Hong Kong Zero 團隊 · 非官方 Kubernetes 教學改作 · <a href="https://hongkongzero.com/" target="_blank" rel="noopener">遊玩官方原作 ↗</a> · <a href="credits.html">素材來源與致謝</a></p>
  <header class="mast"><div class="brand"><span class="brand-mark"><svg class="snow-symbol" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3v42M6 13l36 22M6 35l36-22M18 8l6 6 6-6M18 40l6-6 6 6M7 20l8-2-2-8M41 28l-8 2 2 8M7 28l8 2-2 8M41 20l-8-2 2-8"/></svg></span> HONG KONG ZERO</div><div class="weather"><a class="game-about-link mast-about" href="https://hongkongzero.com/" target="_blank" rel="noopener" style="color: #f2d0a0; text-decoration: none; margin-right: 14px; font-weight: 500;">正版官方網站 ↗</a><a class="game-about-link mast-about" href="about.html">遊戲背景</a></div></header>
- <main class="title-block"><h1>港域<span>時空</span></h1><p class="intro menu-setting">Hong Kong, 2027, An impossible winter</p><div class="menu-actions"><button id="start" class="primary">開始劇情 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="coop-open" class="secondary mp-cta" hidden><span class="mp-cta-text"><span class="mp-cta-title">多人模式<small class="status-tag">測試版</small></span><span class="mp-cta-sub">合作 · 對戰<span class="mp-cta-live" hidden><i aria-hidden="true"></i><span class="mp-cta-count"></span></span></span></span><span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="explore" class="secondary">探索地圖 <span>→</span></button></div><p id="inapp-hint" hidden><button type="button" data-open>在瀏覽器開啟，可橫向遊玩 ›</button> <button type="button" data-close aria-label="關閉提示">×</button></p><div id="coop" class="coop-panel" hidden>
+ <main class="title-block"><h1 aria-label="港域時空 × Kubernetes">港域<span>時空</span></h1><p class="k8s-identity" aria-hidden="true"><span>×</span><img src="assets/icons/kubernetes-logo.svg" alt="" width="36" height="36"> Kubernetes</p><p class="intro menu-setting">Hong Kong, 2027, An impossible winter</p><div class="partner-logos"><img src="assets/icons/hkiit-logo.png" alt="HKIIT" width="65" height="62"><img src="assets/icons/it114115-logo.png" alt="HD in Cloud and Data Centre Administration, HKIIT" width="62" height="62"></div><div class="menu-actions"><button id="start" class="primary">開始劇情 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="coop-open" class="secondary mp-cta" hidden><span class="mp-cta-text"><span class="mp-cta-title">多人模式<small class="status-tag">測試版</small></span><span class="mp-cta-sub">合作 · 對戰<span class="mp-cta-live" hidden><i aria-hidden="true"></i><span class="mp-cta-count"></span></span></span></span><span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button><button id="explore" class="secondary">探索地圖 <span>→</span></button></div><p id="inapp-hint" hidden><button type="button" data-open>在瀏覽器開啟，可橫向遊玩 ›</button> <button type="button" data-close aria-label="關閉提示">×</button></p><div id="coop" class="coop-panel" hidden>
   <div id="coop-entry" class="coop-entry"><div class="eyebrow"><span class="red-line"></span> CO-OP</div><h2 class="coop-title">多人合作 <small class="status-tag">測試版</small></h2>
    <label class="coop-field" for="coop-name">名字</label><input id="coop-name" class="coop-input" maxlength="12" placeholder="玩家" autocomplete="nickname">
    <button id="coop-create" class="primary" type="button">建立房間 <span><svg class="arrow-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M6 5h13v13"/></svg></span></button>

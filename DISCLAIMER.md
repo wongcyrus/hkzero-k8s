@@ -24,7 +24,7 @@ The game assets, 3D street models, audio, textures, and client-side application 
 All original artistic compositions, game narrative, and trademarks belong entirely to their respective original copyright holders.
 
 ### 3. Nature of this Project: Reverse Engineering & Interoperability Research
-- **No Official Permission:** This project is an independent, unofficial technical experiment. **No express permission or commercial license has been obtained from the creators of Hong Kong Zero.**
+- **Permission and Independence:** The maintainer reports permission to republish this educational adaptation. This project remains independent and unofficial; permission does not imply endorsement or a general commercial license.
 - **Reverse Engineering Disclosure:** The client assets and runtime bundles were extracted and modified via client-side inspection, static asset retrieval, and runtime function hooking (reverse engineering) for the sole purpose of achieving software interoperability.
 - **Interoperability Purpose:** The modifications hook specific client-side events (such as enemy defeats and item interactions) to an external WebSocket bridge to demonstrate real-time, event-triggered Kubernetes grading on AWS Serverless architecture. Under copyright law (e.g., U.S. 17 U.S.C. § 1201(f) and Hong Kong Copyright Ordinance Cap. 528 § 60/61), reverse engineering performed strictly to achieve interoperability between independent computer programs is recognized as a legitimate purpose.
 
@@ -89,7 +89,7 @@ Arthur 與團隊憑藉卓越的工程造詣與無比熱忱，以 WebGL 3D 逼真
 上述之原創故事、美術插圖、音樂及專用商標之知識產權與著作權，均完全歸原作者及原版權持有人所有。
 
 ### 3. 專案性質：逆向工程與系統互通性研究（Reverse Engineering）
-- **未獲官方正式許可：** 本專案為獨立之學術與技術驗證專案，**事前並未取得《港域時空》原作者或版權方的正式授權或商業許可。**
+- **重發許可與獨立性：** 維護者表示已獲許可重新發佈此教學改作。本專案仍屬獨立、非官方的技術驗證，不代表原作者背書或取得一般商業授權。
 - **逆向工程公開說明：** 本目錄之代碼與資源係透過瀏覽器客戶端檢視、公開靜態檔案下載與運行時函數攔截（Function Hooking）等技術手段逆向取得與改造。
 - **互通性研究目的：** 改造目的僅在於實現技術互通性（Interoperability），將遊戲內部事件（如擊倒敵人、物資拾取）橋接至 AWS Serverless WebSocket 評測系統，驗證「以 3D 遊戲驅動即時 Kubernetes 實作評分」之創新教學可行性。依香港《版權條例》（第 528 章）第 60/61 條及國際版權法例，為實現獨立開發電腦程式間之「互通性」（Interoperability）而進行之必要還原工程屬合法權利保障範疇。
 

@@ -5,8 +5,8 @@
  * 
  * [DISCLAIMER & ATTRIBUTION / 版權與免責聲明]
  * This client is an UNOFFICIAL, reverse-engineered educational demonstration
- * developed for Kubernetes grading pedagogy. No official permission was obtained
- * from the creators of Hong Kong Zero (港域時空).
+ * developed for Kubernetes grading pedagogy. The maintainer reports permission
+ * to republish this adaptation; it remains unofficial and independent.
  * 
  * All original game assets, 3D street models, and audiovisual media belong
  * entirely to the creators of Hong Kong Zero (https://hongkongzero.com/).
@@ -347,7 +347,7 @@
         </div>
 
         <div style="font-size: 10px; color: #768d99; margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; line-height: 1.6;">
-          💖 <strong>致謝原創作者</strong>：由衷感謝 Arthur 及《港域時空》團隊打造出如此震撼的 3D 香港街景遊戲！本系統僅作為 Kubernetes 實作評測之教學複製品（未獲官方授權）。請前往支持正版：<a href="https://hongkongzero.com/" target="_blank" rel="noopener" style="color: #8bbcd8;">hongkongzero.com</a>｜<a href="./DISCLAIMER.md" target="_blank" style="color: #8bbcd8;">詳細致謝與聲明</a>
+          💖 <strong>致謝原創作者</strong>：由衷感謝 Arthur 及《港域時空》團隊打造出如此震撼的 3D 香港街景遊戲！本系統僅作為 Kubernetes 實作評測之非官方教學改作。請前往支持原作：<a href="https://hongkongzero.com/" target="_blank" rel="noopener" style="color: #8bbcd8;">hongkongzero.com</a>｜<a href="./DISCLAIMER.md" target="_blank" style="color: #8bbcd8;">詳細致謝與聲明</a>
         </div>
       </div>
     `;
