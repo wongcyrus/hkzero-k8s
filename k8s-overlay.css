@@ -2,6 +2,51 @@
    k8s-overlay.css: Kubernetes Grader Overlay & Terminal Styling for HK Zero
    ========================================================================== */
 
+#k8s-kill-chance-dialog {
+  width: min(420px, calc(100% - 32px));
+  border: 1px solid #4a6878;
+  background: #0c151d;
+  color: #eeeae1;
+  padding: 30px;
+  box-shadow: 0 10px 40px #000;
+}
+
+#k8s-kill-chance-dialog::backdrop {
+  background: #071017d9;
+}
+
+#k8s-kill-chance-dialog h2 {
+  margin: 0 0 20px;
+  font-size: 22px;
+}
+
+#k8s-kill-chance-dialog label {
+  display: block;
+  line-height: 1.6;
+}
+
+#k8s-kill-chance-dialog input {
+  width: 100%;
+  margin: 20px 0;
+}
+
+#k8s-kill-chance-dialog p {
+  color: #9bb0bc;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+#k8s-kill-chance-dialog .k8s-chance-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+#k8s-kill-chance-dialog .k8s-chance-actions button {
+  flex: 1;
+  justify-content: center;
+}
+
 #menu .k8s-identity {
   display: flex;
   align-items: center;
@@ -253,6 +298,10 @@ body.touch-mode #menu .original-credit {
   backdrop-filter: blur(8px);
   transition: all 0.2s;
   pointer-events: auto;
+}
+
+#hud:not([hidden]) ~ #k8s-hud-badge {
+  display: none;
 }
 
 #k8s-hud-badge:hover {

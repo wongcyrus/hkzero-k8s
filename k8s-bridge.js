@@ -23,6 +23,9 @@
   let lastTriggerTime = 0;
   let triggerTimer = null;
   const pendingTriggers = [];
+  let killCheckChance = 0.5;
+  let pendingStart = null;
+  let replayingStart = false;
 
   // Active configuration
   const config = {
@@ -245,6 +248,8 @@
       document.exitPointerLock?.();
       if (typeof window.__pauseGameHook === 'function') {
         window.__pauseGameHook();
+      } else if (!document.getElementById('hud')?.hidden && document.getElementById('pause')?.hidden) {
+        document.getElementById('pause-button')?.click();
       }
     } catch (e) {
       console.warn('[k8s-bridge] Pause hook error', e);
@@ -256,6 +261,8 @@
     try {
       if (typeof window.__resumeGameHook === 'function') {
         window.__resumeGameHook();
+      } else if (!document.getElementById('pause')?.hidden) {
+        document.getElementById('resume')?.click();
       }
       const canvas = document.getElementById('world') || document.querySelector('canvas');
       canvas?.requestPointerLock?.();
@@ -269,6 +276,24 @@
    * DOM Elements Injection & Management
    */
   function injectDomElements() {
+    if (new URLSearchParams(window.location.search).has('map')) {
+      const menuActions = document.querySelector('#menu .menu-actions');
+      if (menuActions) {
+        const changeDistrict = document.createElement('button');
+        changeDistrict.type = 'button';
+        changeDistrict.className = 'secondary';
+        changeDistrict.textContent = '選擇地區 →';
+        changeDistrict.onclick = () => {
+          const url = new URL(window.location.href);
+          url.searchParams.delete('map');
+          url.searchParams.delete('go');
+          url.searchParams.delete('level');
+          window.location.assign(url.href);
+        };
+        menuActions.appendChild(changeDistrict);
+      }
+    }
+
     // 1. HUD Badge
     const hudBadge = document.createElement('div');
     hudBadge.id = 'k8s-hud-badge';
@@ -353,6 +378,59 @@
     `;
     document.body.appendChild(configModal);
 
+    const chanceDialog = document.createElement('dialog');
+    chanceDialog.id = 'k8s-kill-chance-dialog';
+    chanceDialog.setAttribute('aria-labelledby', 'k8s-kill-chance-title');
+    chanceDialog.innerHTML = `
+      <h2 id="k8s-kill-chance-title">開始前設定評分機率</h2>
+      <label for="k8s-kill-chance">每次擊敗敵人時進行 Kubernetes 評分的機率：<output id="k8s-kill-chance-value" for="k8s-kill-chance">50%</output></label>
+      <input id="k8s-kill-chance" type="range" min="10" max="100" step="10" value="50">
+      <p>只有抽中的擊殺會暫停遊戲並進行評分；未抽中的擊殺照常繼續。</p>
+      <div class="k8s-chance-actions">
+        <button id="k8s-kill-chance-confirm" class="primary" type="button">開始行動</button>
+        <button id="k8s-kill-chance-cancel" class="secondary" type="button">返回</button>
+      </div>
+    `;
+    document.body.appendChild(chanceDialog);
+    const chanceInput = document.getElementById('k8s-kill-chance');
+    const chanceValue = document.getElementById('k8s-kill-chance-value');
+    chanceInput.addEventListener('input', () => {
+      chanceValue.value = `${chanceInput.value}%`;
+    });
+    document.addEventListener('click', (event) => {
+      if (replayingStart || !(event.target instanceof Element)) return;
+      const button = event.target.closest('#begin-mission, #retry');
+      if (!button) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      pendingStart = button;
+      chanceInput.value = '50';
+      chanceValue.value = '50%';
+      chanceDialog.showModal();
+    }, true);
+    document.getElementById('k8s-kill-chance-confirm').onclick = () => {
+      const chance = chanceInput.valueAsNumber;
+      if (!Number.isInteger(chance) || chance < 10 || chance > 100 || chance % 10 !== 0) {
+        alert('請選擇 10% 至 100% 的評分機率（每次調整 10%）。');
+        return;
+      }
+      killCheckChance = chance / 100;
+      const button = pendingStart;
+      pendingStart = null;
+      chanceDialog.close();
+      if (!button) return;
+      const disclaimerBanner = document.getElementById('k8s-disclaimer-banner');
+      if (disclaimerBanner) disclaimerBanner.style.display = 'none';
+      replayingStart = true;
+      try {
+        button.click();
+      } finally {
+        replayingStart = false;
+      }
+    };
+    document.getElementById('k8s-kill-chance-cancel').onclick = () => chanceDialog.close();
+    chanceDialog.addEventListener('close', () => { pendingStart = null; });
+
     // 4. Persistent Educational Disclaimer Banner
     const disclaimerBanner = document.createElement('div');
     disclaimerBanner.id = 'k8s-disclaimer-banner';
@@ -396,6 +474,11 @@
     if (dot && label) {
       dot.className = `k8s-dot ${state}`;
       label.textContent = text;
+    }
+    const terminalButton = document.getElementById('k8s-terminal-btn');
+    if (terminalButton) {
+      terminalButton.textContent = text;
+      terminalButton.title = 'Kubernetes 終端配置';
     }
   }
 
@@ -553,14 +636,24 @@
     sendTrigger(actionType, details);
   };
 
-  window.onMonsterKilled = function (enemy) {
-    console.info('[k8s-bridge] Monster killed event intercepted:', enemy);
+  window.onMonsterKilled = function (enemy, context = {}) {
+    console.info('[k8s-bridge] Monster killed event intercepted:', { enemy, context });
+    if (context.playerKill === false) {
+      console.info('[k8s-bridge] Non-player kill ignored');
+      return;
+    }
+    if (isChecking || pendingTriggers.some(trigger => trigger.actionType === 'kill-thing')) {
+      return;
+    }
+    if (Math.random() >= killCheckChance) {
+      console.info('[k8s-bridge] Kill check skipped:', { chance: killCheckChance });
+      return;
+    }
     sendTrigger('kill-thing', enemy);
   };
 
   window.onItemPickedUp = function (item) {
     console.info('[k8s-bridge] Item picked up event intercepted:', item);
-    sendTrigger('pickup-thing', item);
   };
 
   // Bootstrapping when DOM is ready

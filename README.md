@@ -22,13 +22,17 @@ This directory contains a modified client of **Hong Kong Zero** adapted to serve
 
 In this gamified learning setup:
 - Students play in a 3D browser environment (Causeway Bay / SOGO).
-- Defeating enemies (`window.onMonsterKilled`) or collecting tactical items (`window.onItemPickedUp`) pauses the game loop and triggers an automated Kubernetes check via AWS Serverless WebSockets.
+- Before starting or retrying a mission, students choose a per-kill Kubernetes check chance (50% by default, 10%–100% in 10% steps). Only selected player-caused kills (`window.onMonsterKilled`) pause the game and trigger an automated check via AWS Serverless WebSockets; NPC-caused deaths, misses, and item pickups do not trigger checks.
 - If the student's Kubernetes cluster is correctly configured (e.g., Pods running, namespaces created, services exposed), the assessment passes and allows the student to continue their mission.
+- To change districts after loading one, return to the main menu and select **選擇地區**. This returns to the district picker without removing the URL parameters manually.
+- The educational-clone notice remains visible on the menu and closes automatically when a mission starts.
 
 ## Key Files Added for Kubernetes Integration
 
 - [`k8s-bridge.js`](./k8s-bridge.js): Manages WebSocket connection to AWS API Gateway, handles pause/resume hooks, resolves student API Keys, and reports grading status.
 - [`k8s-overlay.css`](./k8s-overlay.css): Cyberpunk-style tactical overlay showing cluster evaluation state (Running, Passed, Failed).
 - [`DISCLAIMER.md`](./DISCLAIMER.md): Complete bilingual copyright, fair use, and non-affiliation notice.
+
+Run the bridge's kill-chance and queue regression tests with `node --test k8s-bridge.test.cjs` from this directory.
 
 The landing page displays the supplied HKIIT and IT114115 logos and a locally hosted [Kubernetes logo](https://github.com/kubernetes/kubernetes/blob/master/logo/logo.svg). The Kubernetes logo is available under [Apache-2.0 or CC-BY-4.0](https://github.com/kubernetes/kubernetes/blob/master/logo/LICENSE); its use does not imply Kubernetes project endorsement.
