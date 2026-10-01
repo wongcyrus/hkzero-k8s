@@ -10,6 +10,10 @@
 
 ---
 
+## Demo
+
+[![Watch the Hong Kong Zero Kubernetes demo](https://img.youtube.com/vi/aTRtn5GXCFo/hqdefault.jpg)](https://youtu.be/aTRtn5GXCFo)
+
 ## Overview
 
 This directory contains a modified client of **Hong Kong Zero** adapted to serve as an interactive, real-time exercise client for the `k8s-game-platform`.
